@@ -1,0 +1,2182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="description" content="Fiesta Restaurant - Cocina peruana contemporánea en Lima y Chiclayo.">
+<meta name="keywords" content="restaurante peruano, lima, chiclayo, ceviche, cocina peruana">
+<meta name="author" content="Fiesta Restaurant Gourmet">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Fiesta — Cocina Peruana Contemporánea">
+<meta property="og:description" content="Cocina peruana contemporánea que honra sus raíces.">
+<meta property="og:type" content="restaurant">
+<meta property="og:url" content="https://restaurantfiestagourmet.pe">
+<title>Fiesta — Cocina Peruana | Lima & Chiclayo</title>
+<link rel="canonical" href="https://restaurantfiestagourmet.pe">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+<style>
+:root {
+  --c-earth:   #C8A97E;
+  --c-sienna:  #A0522D;
+  --c-teal:    #4E9E9B;
+  --c-rust:    #C0583A;
+  --c-cream:   #F5EDE0;
+  --c-ink:     #0D0C10;
+  --c-ink2:    #141218;
+  --c-ink3:    #1C1A22;
+  --c-ink4:    #252330;
+  --c-glass:   rgba(255,255,255,0.05);
+  --c-glass-b: rgba(255,255,255,0.09);
+  --c-text:    #F0E8DC;
+  --c-text2:   rgba(240,232,220,0.55);
+  --c-text3:   rgba(240,232,220,0.30);
+  --r:         12px;
+  --r-sm:      8px;
+  --shadow-lg: 0 32px 80px rgba(0,0,0,0.55);
+  --shadow-md: 0 12px 32px rgba(0,0,0,0.4);
+  --shadow-sm: 0 4px 16px rgba(0,0,0,0.3);
+  --grad-main: linear-gradient(135deg, var(--c-earth), var(--c-sienna));
+  --grad-teal: linear-gradient(135deg, var(--c-teal), #3D8481);
+  --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ── RESET & BASE ─────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--c-ink);
+  color: var(--c-text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+body.sede-lima    { --c-accent: var(--c-teal);  --c-accent-dim: rgba(78,158,155,0.12); }
+body.sede-chiclayo{ --c-accent: var(--c-rust);  --c-accent-dim: rgba(192,88,58,0.12); }
+
+img { display: block; max-width: 100%; }
+button { font-family: inherit; cursor: pointer; }
+a { color: inherit; }
+
+.skip-link { position: absolute; top: -40px; left: 0; background: var(--c-earth); color: var(--c-ink); padding: 8px 16px; z-index: 9999; text-decoration: none; font-weight: 700; border-radius: 0 0 6px 0; transition: top .3s; }
+.skip-link:focus { top: 0; }
+*:focus-visible { outline: 2px solid var(--c-earth); outline-offset: 3px; }
+
+/* ── AMBIENT BACKGROUND ───────────────────────── */
+.ambient {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(ellipse 80vw 60vh at 10% 0%,   rgba(200,169,126,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 60vw 50vh at 90% 90%,  rgba(78,158,155,0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 50vw 40vh at 50% 50%,  rgba(192,88,58,0.03)  0%, transparent 60%);
+}
+.ambient::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: .6;
+}
+
+/* ── NAVBAR ───────────────────────────────────── */
+nav {
+  position: fixed; top: 12px; left: 12px; right: 12px; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 22px; height: 60px;
+  background: rgba(13,12,16,0.55);
+  backdrop-filter: blur(20px) saturate(1.6);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+nav.pinned {
+  top: 0; left: 0; right: 0; border-radius: 0;
+  background: rgba(13,12,16,0.9);
+  border-color: rgba(255,255,255,0.06);
+  height: 58px;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.5);
+}
+
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+.nav-logo-img { height: 38px; width: auto; object-fit: contain; border-radius: 6px; transition: transform .3s; }
+.nav-logo:hover .nav-logo-img { transform: scale(1.04); }
+.nav-logo-fallback { display: none; align-items: center; gap: 6px; }
+.nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--c-earth); letter-spacing: .03em; }
+
+.nav-links { display: flex; gap: 2px; align-items: center; }
+.nav-links a {
+  color: var(--c-text2); text-decoration: none;
+  font-size: 13px; font-weight: 500;
+  padding: 7px 16px; border-radius: 40px;
+  transition: all .25s; letter-spacing: .01em;
+}
+.nav-links a:hover, .nav-links a:focus { color: var(--c-text); background: var(--c-glass); }
+
+.nav-actions { display: flex; gap: 8px; align-items: center; }
+
+/* sede dropdown */
+.sede-dropdown { position: relative; }
+.sede-toggle {
+  display: flex; align-items: center; gap: 7px;
+  padding: 7px 14px; border-radius: 40px;
+  background: var(--c-glass); border: 1px solid var(--c-glass-b);
+  color: var(--c-text2); font-size: 12px; font-weight: 600;
+  transition: all .3s;
+}
+.sede-toggle:hover { background: rgba(200,169,126,0.12); color: var(--c-earth); border-color: rgba(200,169,126,0.25); }
+.sede-toggle .chev { font-size: 9px; transition: transform .3s; }
+.sede-toggle.open .chev { transform: rotate(180deg); }
+
+.sede-menu {
+  position: absolute; top: calc(100% + 8px); right: 0;
+  background: #1a1826; border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px; padding: 6px;
+  min-width: 155px;
+  opacity: 0; visibility: hidden; transform: translateY(-8px) scale(.97);
+  transition: all .25s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: var(--shadow-lg);
+  z-index: 100;
+}
+.sede-menu.open { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+
+.sede-opt {
+  display: flex; align-items: center; gap: 9px;
+  padding: 10px 13px; border-radius: 9px;
+  cursor: pointer; transition: all .2s;
+  font-size: 13px; font-weight: 500; color: var(--c-text2);
+}
+.sede-opt:hover { background: rgba(200,169,126,0.1); color: var(--c-earth); }
+.sede-opt.active { background: var(--grad-main); color: var(--c-ink); font-weight: 600; }
+.sede-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.sd-lima .sede-dot { background: var(--c-teal); }
+.sd-chiclayo .sede-dot { background: var(--c-rust); }
+.sede-opt.active .sede-dot { background: rgba(13,12,16,0.5); }
+.sede-opt .fa-check { margin-left: auto; font-size: 10px; }
+
+.lang-sw { display: flex; align-items: center; gap: 3px; background: var(--c-glass); border: 1px solid var(--c-glass-b); border-radius: 40px; padding: 3px; }
+.lang-btn { padding: 5px 10px; border-radius: 40px; font-size: 11px; font-weight: 600; cursor: pointer; border: none; background: transparent; color: var(--c-text3); transition: all .3s; }
+.lang-btn.active { background: var(--c-earth); color: var(--c-ink); }
+
+.btn-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--c-glass); border: 1px solid var(--c-glass-b);
+  color: var(--c-text2); font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .25s; position: relative;
+}
+.btn-icon:hover { background: rgba(200,169,126,0.12); color: var(--c-earth); border-color: rgba(200,169,126,0.25); transform: scale(1.06); }
+
+.cart-badge {
+  position: absolute; top: -3px; right: -3px;
+  min-width: 17px; height: 17px; border-radius: 9px;
+  background: var(--c-rust); border: 2px solid var(--c-ink);
+  font-size: 9px; font-weight: 700; color: #fff;
+  display: none; align-items: center; justify-content: center;
+  padding: 0 3px;
+}
+.cart-badge.show { display: flex; animation: pop .35s cubic-bezier(.175,.885,.32,1.275); }
+@keyframes pop { 0%{transform:scale(0)} 100%{transform:scale(1)} }
+
+.carta-link {
+  display: flex; align-items: center; gap: 5px;
+  padding: 7px 14px; border-radius: 40px;
+  background: var(--c-glass); border: 1px solid var(--c-glass-b);
+  color: var(--c-text2); font-size: 12px; font-weight: 600;
+  text-decoration: none; transition: all .3s; letter-spacing: .04em; text-transform: uppercase;
+}
+.carta-link:hover { background: rgba(200,169,126,0.12); color: var(--c-earth); border-color: rgba(200,169,126,0.25); }
+
+.hamburger { display: none; background: none; border: none; color: var(--c-earth); font-size: 18px; padding: 8px; }
+
+/* ── WHATSAPP ─────────────────────────────────── */
+.wa-wrap { position: fixed; bottom: 24px; right: 24px; z-index: 90; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.wa-bubble {
+  background: rgba(10,10,14,0.92); backdrop-filter: blur(12px);
+  border: 1px solid rgba(37,211,102,0.25); border-radius: 14px 14px 3px 14px;
+  padding: 10px 14px; font-size: 12px; font-weight: 500; line-height: 1.4; max-width: 210px;
+  opacity: 0; transform: translateY(8px) scale(.95);
+  transition: all .4s ease; pointer-events: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.wa-bubble.show { opacity: 1; transform: translateY(0) scale(1); }
+.wa-bubble-row { display: flex; align-items: center; gap: 6px; }
+.wa-bubble-row i { color: #25D366; }
+.wa-sub { font-size: 10px; color: var(--c-text3); margin-top: 4px; display: flex; align-items: center; gap: 4px; }
+.live-dot { width: 6px; height: 6px; border-radius: 50%; background: #25D366; animation: livePulse 3s ease-in-out infinite; }
+@keyframes livePulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+.wa-btn {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #25D366; display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 28px; text-decoration: none;
+  transition: transform .3s, box-shadow .3s;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  position: relative;
+}
+.wa-btn:hover { transform: scale(1.06); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+.wa-btn::before, .wa-btn::after {
+  content: ''; position: absolute; inset: -4px; border-radius: 50%;
+  border: 1.5px solid rgba(37,211,102,0.35);
+  animation: ring 4s ease-out infinite;
+}
+.wa-btn::after { animation-delay: 2s; }
+@keyframes ring { 0%{transform:scale(1);opacity:1} 100%{transform:scale(1.9);opacity:0} }
+
+/* ── HERO ─────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 120px 0 80px;
+  position: relative; overflow: hidden;
+}
+
+.hero-deco {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  overflow: hidden;
+}
+.hero-deco-line {
+  position: absolute;
+  background: linear-gradient(180deg, transparent, rgba(200,169,126,0.15), transparent);
+  width: 1px;
+}
+.hero-deco-line:nth-child(1) { left: 20%; height: 100%; top: 0; opacity: .6; }
+.hero-deco-line:nth-child(2) { left: 50%; height: 60%; top: 20%; opacity: .3; }
+.hero-deco-line:nth-child(3) { left: 80%; height: 100%; top: 0; opacity: .6; }
+.hero-deco-circle {
+  position: absolute; border-radius: 50%;
+  border: 1px solid rgba(200,169,126,0.08);
+}
+.hero-deco-circle:nth-child(4) { width: 600px; height: 600px; top: -200px; right: -100px; }
+.hero-deco-circle:nth-child(5) { width: 400px; height: 400px; bottom: -100px; left: -150px; border-color: rgba(78,158,155,0.08); }
+
+.hero-content {
+  position: relative; z-index: 1;
+  max-width: 1280px; margin: 0 auto; width: 100%;
+  padding: 0 24px;
+}
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(200,169,126,0.1); border: 1px solid rgba(200,169,126,0.2);
+  color: var(--c-earth); padding: 6px 16px; border-radius: 40px;
+  font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  margin-bottom: 32px;
+  animation: fadeUp .8s ease both;
+}
+.hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--c-earth); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+.hero-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 8vw, 108px);
+  font-weight: 600; line-height: .95; letter-spacing: -.02em;
+  margin-bottom: 24px;
+  animation: fadeUp .8s .1s ease both;
+}
+.hero-heading em { font-style: italic; color: var(--c-earth); }
+
+.hero-sub {
+  font-size: clamp(15px, 1.5vw, 18px); color: var(--c-text2);
+  font-weight: 300; max-width: 520px; line-height: 1.7;
+  margin-bottom: 56px;
+  animation: fadeUp .8s .2s ease both;
+}
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+
+.hero-sedes {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 20px; max-width: 900px;
+  animation: fadeUp .8s .3s ease both;
+}
+
+.sede-card {
+  background: rgba(20,18,24,0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  padding: 32px;
+  position: relative; overflow: hidden;
+  transition: all .4s cubic-bezier(0.4,0,0.2,1);
+  cursor: default;
+}
+.sede-card::before {
+  content: ''; position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity .5s;
+}
+.sede-card.lima::before   { background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=70'); }
+.sede-card.chiclayo::before { background-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=900&q=70'); }
+.sede-card:hover::before { opacity: .12; }
+.sede-card:hover { transform: translateY(-6px); border-color: rgba(200,169,126,0.25); box-shadow: 0 28px 72px rgba(0,0,0,0.5); }
+
+.sede-card-accent {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; border-radius: 20px 20px 0 0;
+}
+.lima  .sede-card-accent { background: var(--grad-teal); }
+.chiclayo .sede-card-accent { background: var(--c-rust); }
+
+.sede-card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; position: relative; z-index: 1; }
+.sede-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.lima .sede-icon { background: rgba(78,158,155,0.12); color: var(--c-teal); border: 1px solid rgba(78,158,155,0.2); }
+.chiclayo .sede-icon { background: rgba(192,88,58,0.12); color: var(--c-rust); border: 1px solid rgba(192,88,58,0.2); }
+
+.sede-label { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--c-text3); margin-bottom: 2px; }
+.sede-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; line-height: 1.1; }
+
+.sede-details { display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px; position: relative; z-index: 1; }
+.sede-row { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: var(--c-text2); }
+.sede-row i { color: var(--c-earth); font-size: 12px; margin-top: 3px; flex-shrink: 0; width: 16px; text-align: center; opacity: .8; }
+.sede-row a { color: var(--c-earth); text-decoration: none; transition: color .2s; }
+.sede-row a:hover { color: var(--c-cream); }
+
+.sede-btns { display: flex; gap: 10px; flex-wrap: wrap; position: relative; z-index: 1; }
+
+.btn-primary {
+  padding: 11px 22px; border-radius: 50px;
+  background: var(--grad-main); border: none;
+  color: var(--c-ink); font-size: 12px; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  transition: all .3s; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 7px;
+  box-shadow: 0 4px 18px rgba(200,169,126,0.2);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,169,126,0.35); filter: brightness(1.05); }
+
+.btn-outline {
+  padding: 11px 22px; border-radius: 50px;
+  background: transparent; border: 1px solid rgba(255,255,255,0.12);
+  color: var(--c-text); font-size: 12px; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase;
+  transition: all .3s; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 7px;
+  backdrop-filter: blur(4px);
+}
+.btn-outline:hover { border-color: rgba(200,169,126,0.3); color: var(--c-earth); background: rgba(200,169,126,0.05); }
+
+.hero-stats {
+  display: flex; gap: 0;
+  margin-top: 56px;
+  animation: fadeUp .8s .45s ease both;
+  max-width: 420px;
+}
+.hero-stat {
+  flex: 1; padding: 20px 24px; text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+.hero-stat:last-child { border-right: none; }
+.stat-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--c-earth); line-height: 1; }
+.stat-label { font-size: 11px; color: var(--c-text3); font-weight: 500; letter-spacing: .08em; text-transform: uppercase; margin-top: 4px; }
+
+/* ── SECTION BASE ─────────────────────────────── */
+section { padding: 96px 0; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+.section-tag {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(200,169,126,0.08); border: 1px solid rgba(200,169,126,0.15);
+  color: var(--c-earth); padding: 5px 14px; border-radius: 40px;
+  font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 62px);
+  font-weight: 600; line-height: 1.0; letter-spacing: -.015em;
+  margin-bottom: 14px;
+}
+.section-title em { font-style: italic; color: var(--c-earth); }
+.section-desc { font-size: 16px; color: var(--c-text2); line-height: 1.65; font-weight: 300; max-width: 480px; }
+
+.section-head { margin-bottom: 56px; }
+
+/* ── CATÁLOGO ─────────────────────────────────── */
+#menu { background: var(--c-ink2); }
+
+.catalog-filters {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.filter-btn {
+  padding: 8px 20px; border-radius: 40px;
+  background: var(--c-glass); border: 1px solid var(--c-glass-b);
+  color: var(--c-text2); font-size: 12px; font-weight: 600;
+  letter-spacing: .04em; transition: all .25s;
+}
+.filter-btn:hover { color: var(--c-earth); border-color: rgba(200,169,126,0.25); background: rgba(200,169,126,0.07); }
+.filter-btn.active { background: var(--grad-main); color: var(--c-ink); border-color: transparent; box-shadow: 0 4px 14px rgba(200,169,126,0.25); }
+
+.menu-section { margin-bottom: 64px; }
+.menu-section:last-child { margin-bottom: 0; }
+.menu-section-head {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 32px; padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.menu-section-icon {
+  width: 42px; height: 42px; border-radius: 11px;
+  display: flex; align-items: center; justify-content: center; font-size: 17px;
+}
+.icon-food { background: rgba(200,169,126,0.1); color: var(--c-earth); border: 1px solid rgba(200,169,126,0.15); }
+.icon-drink { background: rgba(78,158,155,0.1); color: var(--c-teal); border: 1px solid rgba(78,158,155,0.15); }
+.menu-section-title { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; }
+.menu-section-sub { font-size: 13px; color: var(--c-text3); font-weight: 400; margin-top: 2px; }
+.menu-count { margin-left: auto; font-size: 11px; color: var(--c-text3); font-weight: 500; letter-spacing: .05em; }
+
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+
+.product-card {
+  background: var(--c-ink3);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 18px; overflow: hidden;
+  transition: all .4s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+}
+.product-card:hover:not(.sold-out) {
+  transform: translateY(-6px);
+  border-color: rgba(200,169,126,0.2);
+  box-shadow: 0 20px 52px rgba(0,0,0,0.45);
+}
+.product-card.sold-out { opacity: .55; filter: grayscale(.6); }
+
+.pc-image {
+  position: relative; height: 220px; overflow: hidden;
+  background: var(--c-ink4);
+}
+.pc-image img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .7s cubic-bezier(0.4,0,0.2,1);
+}
+.product-card:hover:not(.sold-out) .pc-image img { transform: scale(1.08); }
+
+.pc-image-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(13,12,16,.6) 0%, transparent 50%);
+}
+.pc-badge {
+  position: absolute; top: 14px; left: 14px;
+  padding: 5px 12px; border-radius: 20px;
+  font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  backdrop-filter: blur(8px); z-index: 2;
+}
+.badge-chef    { background: rgba(200,169,126,0.9); color: var(--c-ink); }
+.badge-new     { background: rgba(78,158,155,0.9);  color: var(--c-ink); }
+.badge-popular { background: rgba(192,88,58,0.9);   color: #fff; }
+
+.pc-stock {
+  position: absolute; top: 14px; right: 14px;
+  padding: 4px 10px; border-radius: 20px;
+  font-size: 10px; font-weight: 700;
+  backdrop-filter: blur(8px); z-index: 2;
+}
+.stock-ok  { background: rgba(78,158,155,0.85); color: var(--c-ink); }
+.stock-low { background: rgba(200,169,126,0.85); color: var(--c-ink); }
+.stock-out { background: rgba(120,120,130,0.7); color: rgba(255,255,255,0.7); }
+
+.pc-body { padding: 20px 22px; }
+.pc-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+.pc-name { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 600; line-height: 1.15; }
+.pc-price { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--c-earth); white-space: nowrap; }
+.pc-desc { font-size: 13px; color: var(--c-text2); line-height: 1.55; margin-bottom: 18px; font-weight: 300; }
+.pc-footer { display: flex; justify-content: space-between; align-items: center; }
+.pc-meta { display: flex; gap: 14px; font-size: 11px; color: var(--c-text3); }
+.pc-meta span { display: flex; align-items: center; gap: 4px; }
+.pc-meta i { color: var(--c-earth); opacity: .7; }
+
+.btn-add {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--grad-main); border: none;
+  color: var(--c-ink); display: flex; align-items: center; justify-content: center;
+  font-size: 16px; transition: all .3s;
+  box-shadow: 0 4px 12px rgba(200,169,126,0.25);
+}
+.btn-add:hover { transform: scale(1.12) rotate(90deg); box-shadow: 0 6px 20px rgba(200,169,126,0.4); }
+.btn-add i { transition: transform .3s; }
+
+/* ── TESTIMONIALS ─────────────────────────────── */
+.testi-track {
+  display: flex; gap: 18px;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 16px; scrollbar-width: none;
+}
+.testi-track::-webkit-scrollbar { display: none; }
+
+.testi-card {
+  min-width: 320px; max-width: 320px;
+  scroll-snap-align: start;
+  background: var(--c-ink3); border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 18px; padding: 28px;
+  transition: border-color .3s;
+  flex-shrink: 0;
+}
+.testi-card:hover { border-color: rgba(200,169,126,0.15); }
+
+.testi-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+.testi-stars i { color: var(--c-earth); font-size: 13px; }
+.testi-quote { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; line-height: 1.55; color: var(--c-cream); margin-bottom: 20px; font-weight: 400; }
+.testi-sep { height: 1px; background: rgba(255,255,255,0.05); margin-bottom: 18px; }
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 16px;
+  color: var(--c-ink); flex-shrink: 0;
+}
+.av-e { background: var(--c-earth); }
+.av-t { background: var(--c-teal); }
+.av-r { background: var(--c-rust); }
+.testi-name { font-size: 14px; font-weight: 600; }
+.testi-loc { font-size: 12px; color: var(--c-text3); margin-top: 1px; }
+
+.testi-dots { display: flex; gap: 7px; margin-top: 28px; }
+.testi-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.12); cursor: pointer; transition: all .3s; }
+.testi-dot.active { background: var(--c-earth); transform: scale(1.3); }
+
+/* ── CONTACTO ─────────────────────────────────── */
+#contacto { background: var(--c-ink2); }
+
+.contact-sedes-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.contact-sede-card {
+  background: var(--c-ink3); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px; padding: 32px; position: relative; overflow: hidden;
+  transition: all .35s;
+}
+.contact-sede-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.contact-sede-card.lima::before    { background: var(--grad-teal); }
+.contact-sede-card.chiclayo::before { background: var(--c-rust); }
+.contact-sede-card:hover { border-color: rgba(200,169,126,0.15); transform: translateY(-4px); box-shadow: 0 20px 52px rgba(0,0,0,0.4); }
+
+.contact-sede-label { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--c-text3); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.contact-sede-label span { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+.contact-sede-card.lima    .contact-sede-label span { background: var(--c-teal); }
+.contact-sede-card.chiclayo .contact-sede-label span { background: var(--c-rust); }
+.contact-sede-name { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; margin-bottom: 24px; }
+
+.contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+.contact-item-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(200,169,126,0.1); color: var(--c-earth);
+  border: 1px solid rgba(200,169,126,0.12); font-size: 14px;
+}
+.contact-item-label { font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--c-text3); margin-bottom: 2px; }
+.contact-item-val { font-size: 13px; color: var(--c-text); }
+.contact-item-val a { color: var(--c-earth); text-decoration: none; transition: color .2s; }
+.contact-item-val a:hover { color: var(--c-cream); }
+
+.contact-sede-socials { display: flex; gap: 8px; margin: 20px 0; flex-wrap: wrap; }
+.contact-social {
+  width: 34px; height: 34px; border-radius: 9px;
+  background: var(--c-glass); border: 1px solid var(--c-glass-b);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--c-text3); font-size: 14px;
+  transition: all .25s; text-decoration: none;
+}
+.contact-social:hover { background: rgba(200,169,126,0.1); color: var(--c-earth); border-color: rgba(200,169,126,0.2); transform: translateY(-2px); }
+
+.btn-escribenos {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 24px; border-radius: 50px;
+  background: var(--grad-main); border: none;
+  color: var(--c-ink); font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: .04em;
+  cursor: pointer; transition: all .3s; margin-top: 4px;
+  box-shadow: 0 4px 16px rgba(200,169,126,0.2);
+}
+.btn-escribenos:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,169,126,0.35); }
+
+/* ── CONTACT MODAL ────────────────────────────── */
+.cmodal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(10px); z-index: 600;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity .3s; padding: 16px;
+}
+.cmodal-overlay.show { opacity: 1; pointer-events: all; }
+.cmodal {
+  background: #1a1824; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.07);
+  width: min(460px, 100%); max-height: 90vh; overflow-y: auto;
+  transform: translateY(16px) scale(.97);
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow: var(--shadow-lg);
+}
+.cmodal-overlay.show .cmodal { transform: translateY(0) scale(1); }
+.cmodal-hd {
+  padding: 20px 22px 16px;
+  display: flex; align-items: center; gap: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.05); position: sticky; top: 0;
+  background: #1a1824; z-index: 2;
+}
+.cmodal-hd-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  background: rgba(200,169,126,0.12); color: var(--c-earth);
+  display: flex; align-items: center; justify-content: center; font-size: 15px;
+}
+.cmodal-hd-title { flex: 1; }
+.cmodal-hd-title h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; line-height: 1.1; }
+.cmodal-hd-title p { font-size: 12px; color: var(--c-text3); margin-top: 2px; }
+.cmodal-body { padding: 24px 22px 28px; }
+.cmodal-body .form-group { margin-bottom: 16px; }
+.cmodal-body .form-label { display: block; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--c-text3); margin-bottom: 7px; }
+.cmodal-body .form-input {
+  width: 100%; padding: 11px 14px;
+  border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;
+  background: rgba(255,255,255,0.04); color: var(--c-text);
+  font-family: 'DM Sans', sans-serif; font-size: 13px; transition: all .25s; outline: none;
+}
+.cmodal-body .form-input:focus { border-color: rgba(200,169,126,0.35); box-shadow: 0 0 0 3px rgba(200,169,126,0.07); }
+.cmodal-body textarea.form-input { min-height: 110px; resize: vertical; }
+.btn-cmodal-submit {
+  width: 100%; padding: 13px; border-radius: 50px; border: none;
+  background: var(--grad-main); color: var(--c-ink);
+  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+  transition: all .3s; box-shadow: 0 4px 18px rgba(200,169,126,0.2); margin-top: 4px;
+}
+.btn-cmodal-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,169,126,0.35); }
+
+/* ── FOOTER ───────────────────────────────────── */
+footer {
+  background: var(--c-ink); border-top: 1px solid rgba(255,255,255,0.04);
+  padding: 60px 0 32px;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+  margin-bottom: 48px;
+}
+.footer-brand p { font-size: 13px; color: var(--c-text3); line-height: 1.65; max-width: 280px; margin-top: 14px; font-weight: 300; }
+.footer-socials { display: flex; gap: 8px; margin-top: 20px; }
+.footer-social {
+  width: 34px; height: 34px; border-radius: 9px;
+  background: var(--c-glass); border: 1px solid var(--c-glass-b);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--c-text3); font-size: 13px;
+  transition: all .25s; text-decoration: none;
+}
+.footer-social:hover { background: rgba(200,169,126,0.1); color: var(--c-earth); border-color: rgba(200,169,126,0.2); transform: translateY(-2px); }
+.footer-col h5 { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--c-earth); margin-bottom: 18px; }
+.footer-col a { display: block; font-size: 13px; color: var(--c-text3); text-decoration: none; padding: 4px 0; transition: color .2s; font-weight: 300; }
+.footer-col a:hover { color: var(--c-cream); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.04);
+  padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 10px;
+}
+.footer-bottom p { font-size: 12px; color: var(--c-text3); font-weight: 300; }
+
+/* ── CART PANEL ───────────────────────────────── */
+.cart-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px); z-index: 500;
+  opacity: 0; pointer-events: none; transition: opacity .3s;
+}
+.cart-overlay.show { opacity: 1; pointer-events: all; }
+
+.cart-panel {
+  position: fixed; top: 10px; right: 10px; bottom: 10px;
+  width: 400px; max-width: calc(100vw - 20px);
+  background: rgba(18,16,22,0.97); backdrop-filter: blur(24px);
+  border-radius: 18px; border: 1px solid rgba(255,255,255,0.07);
+  z-index: 501; display: flex; flex-direction: column;
+  transform: translateX(calc(100% + 24px));
+  transition: transform .45s cubic-bezier(.4,0,.2,1);
+  box-shadow: var(--shadow-lg);
+}
+.cart-panel.show { transform: translateX(0); }
+
+.cart-hd {
+  padding: 22px 22px 18px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.05); flex-shrink: 0;
+}
+.cart-hd h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; }
+.cart-hd-right { display: flex; align-items: center; gap: 8px; }
+.cart-sede-tag {
+  background: var(--c-accent-dim); border: 1px solid rgba(255,255,255,0.08);
+  color: var(--c-accent); padding: 4px 10px; border-radius: 20px;
+  font-size: 11px; font-weight: 600;
+}
+.btn-close {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--c-glass); border: 1px solid var(--c-glass-b);
+  color: var(--c-text2); display: flex; align-items: center; justify-content: center;
+  font-size: 13px; transition: all .2s;
+}
+.btn-close:hover { background: rgba(200,169,126,0.1); color: var(--c-earth); }
+
+.cart-body {
+  flex: 1; overflow-y: auto; padding: 14px 20px;
+  scrollbar-width: thin; scrollbar-color: rgba(200,169,126,0.1) transparent;
+}
+.cart-empty-state {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  height: 100%; gap: 12px; color: var(--c-text3); text-align: center;
+}
+.cart-empty-icon { font-size: 48px; opacity: .2; }
+
+.cart-item {
+  display: flex; gap: 12px; padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  animation: slideIn .3s ease;
+}
+@keyframes slideIn { from{opacity:0;transform:translateX(14px)} to{opacity:1;transform:translateX(0)} }
+.ci-img {
+  width: 60px; height: 60px; border-radius: 10px; flex-shrink: 0;
+  overflow: hidden;
+}
+.ci-img-bg { width: 100%; height: 100%; background-size: cover; background-position: center; }
+.ci-info { flex: 1; min-width: 0; }
+.ci-name { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 600; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ci-sub { font-size: 11px; color: var(--c-text3); margin-bottom: 8px; }
+.ci-qty { display: flex; align-items: center; gap: 8px; }
+.qty-btn {
+  width: 24px; height: 24px; border-radius: 50%;
+  border: 1px solid rgba(200,169,126,0.2); background: transparent;
+  color: var(--c-text2); font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+}
+.qty-btn:hover { background: rgba(200,169,126,0.1); color: var(--c-earth); }
+.qty-val { font-size: 13px; font-weight: 700; min-width: 18px; text-align: center; }
+.ci-price { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--c-earth); align-self: center; flex-shrink: 0; }
+.btn-rm { background: none; border: none; color: var(--c-text3); font-size: 12px; transition: color .2s; padding: 4px; align-self: flex-start; }
+.btn-rm:hover { color: var(--c-rust); }
+
+.cart-ft {
+  padding: 16px 20px 20px;
+  border-top: 1px solid rgba(255,255,255,0.05); flex-shrink: 0;
+}
+.cart-total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.cart-total-lbl { font-size: 13px; color: var(--c-text3); }
+.cart-total-val { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--c-earth); }
+.btn-checkout {
+  width: 100%; padding: 14px; border-radius: 50px; border: none;
+  background: var(--grad-main); color: var(--c-ink);
+  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+  letter-spacing: .04em; transition: all .3s;
+  box-shadow: 0 6px 24px rgba(200,169,126,0.25);
+}
+.btn-checkout:hover { box-shadow: 0 10px 34px rgba(200,169,126,0.4); transform: translateY(-2px); }
+
+/* ── PRODUCT MODAL ────────────────────────────── */
+.pm-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(12px); z-index: 550;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity .3s;
+}
+.pm-overlay.show { opacity: 1; pointer-events: all; }
+.pm-modal {
+  background: rgba(18,16,22,0.98); border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.07);
+  display: grid; grid-template-columns: 1.1fr 1fr;
+  overflow: hidden; max-width: 940px; width: 94vw; max-height: 88vh;
+  transform: translateY(24px) scale(.96);
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
+  box-shadow: var(--shadow-lg);
+}
+.pm-overlay.show .pm-modal { transform: translateY(0) scale(1); }
+.pm-img { position: relative; overflow: hidden; min-height: 380px; }
+.pm-img img { width: 100%; height: 100%; object-fit: cover; }
+.pm-img-overlay { position: absolute; inset: 0; background: linear-gradient(0deg,rgba(13,12,16,.5) 0%, transparent 50%); }
+.pm-close-btn {
+  position: absolute; top: 14px; right: 14px; z-index: 3;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(13,12,16,.7); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.1); color: var(--c-text2);
+  display: flex; align-items: center; justify-content: center; font-size: 14px;
+  transition: all .2s;
+}
+.pm-close-btn:hover { background: var(--c-earth); color: var(--c-ink); border-color: transparent; }
+
+.pm-details {
+  padding: 36px 32px; display: flex; flex-direction: column; overflow-y: auto;
+}
+.pm-cat { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--c-earth); font-weight: 600; margin-bottom: 8px; }
+.pm-name { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600; line-height: 1.1; margin-bottom: 6px; }
+.pm-price { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--c-earth); margin-bottom: 20px; }
+.pm-desc-lbl { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--c-text2); margin-bottom: 7px; }
+.pm-desc { font-size: 14px; color: var(--c-text2); line-height: 1.7; margin-bottom: 24px; font-weight: 300; }
+.pm-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 26px; }
+.pm-meta-item {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; padding: 12px 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.pm-meta-icon {
+  width: 30px; height: 30px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; font-size: 13px;
+}
+.mi-earth { background: rgba(200,169,126,0.1); color: var(--c-earth); }
+.mi-teal  { background: rgba(78,158,155,0.1);  color: var(--c-teal); }
+.pm-meta-lbl { font-size: 10px; color: var(--c-text3); text-transform: uppercase; letter-spacing: .08em; font-weight: 600; }
+.pm-meta-val { font-size: 13px; font-weight: 500; }
+.pm-qty-lbl { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--c-text3); margin-bottom: 10px; }
+.pm-qty-ctrl {
+  display: flex; align-items: center; gap: 0;
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 40px;
+  overflow: hidden; width: fit-content; margin-bottom: 24px;
+}
+.pm-qty-btn {
+  width: 42px; height: 42px; background: rgba(255,255,255,0.03);
+  border: none; color: var(--c-text2); font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+}
+.pm-qty-btn:hover { background: rgba(200,169,126,0.1); color: var(--c-earth); }
+.pm-qty-val { width: 46px; text-align: center; font-size: 16px; font-weight: 700; background: transparent; border: none; color: var(--c-text); }
+.pm-add {
+  width: 100%; padding: 15px; border-radius: 50px; border: none;
+  background: var(--grad-main); color: var(--c-ink);
+  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+  letter-spacing: .04em; transition: all .3s;
+  box-shadow: 0 6px 24px rgba(200,169,126,0.25);
+  display: flex; align-items: center; justify-content: center; gap: 9px;
+}
+.pm-add:hover { box-shadow: 0 10px 36px rgba(200,169,126,0.4); transform: translateY(-2px); }
+
+/* ── AUTH MODAL ───────────────────────────────── */
+.auth-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(10px); z-index: 600;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity .3s;
+}
+.auth-overlay.show { opacity: 1; pointer-events: all; }
+.auth-modal {
+  background: rgba(20,18,26,0.97); backdrop-filter: blur(20px);
+  border-radius: 20px; border: 1px solid rgba(255,255,255,0.07);
+  width: 360px; max-width: 92vw; padding: 26px;
+  transform: translateY(16px) scale(.97);
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  box-shadow: var(--shadow-lg); position: relative;
+}
+.auth-overlay.show .auth-modal { transform: translateY(0) scale(1); }
+.auth-logo { text-align: center; margin-bottom: 18px; }
+.auth-logo img { height: 46px; width: auto; border-radius: 8px; margin: 0 auto; }
+.auth-tabs {
+  display: flex; background: var(--c-glass);
+  border-radius: 40px; padding: 3px;
+  border: 1px solid var(--c-glass-b); margin-bottom: 22px;
+}
+.auth-tab {
+  flex: 1; padding: 8px; border-radius: 40px;
+  font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  border: none; background: transparent; color: var(--c-text3);
+  font-family: 'DM Sans', sans-serif; transition: all .3s;
+}
+.auth-tab.active { background: var(--grad-main); color: var(--c-ink); box-shadow: 0 4px 14px rgba(200,169,126,0.2); }
+.auth-panel { display: none; }
+.auth-panel.active { display: block; animation: fadeUp .3s ease; }
+.auth-group { margin-bottom: 14px; }
+.auth-group label { display: block; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--c-text3); margin-bottom: 7px; }
+.auth-group input {
+  width: 100%; padding: 10px 14px; border: 1px solid rgba(255,255,255,0.07); border-radius: 9px;
+  background: var(--c-glass); color: var(--c-text);
+  font-family: 'DM Sans', sans-serif; font-size: 13px;
+  transition: all .25s; outline: none;
+}
+.auth-group input:focus { border-color: rgba(200,169,126,0.35); box-shadow: 0 0 0 3px rgba(200,169,126,0.07); }
+.btn-auth {
+  width: 100%; padding: 10px; border-radius: 40px; border: none;
+  background: var(--grad-main); color: var(--c-ink);
+  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700;
+  transition: all .3s; margin-top: 6px;
+}
+.btn-auth:hover { filter: brightness(1.07); transform: translateY(-1px); }
+
+/* ── RESERVATION MODAL ────────────────────────── */
+.reserv-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.75);
+  backdrop-filter: blur(14px); z-index: 600;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity .35s;
+  padding: 16px;
+}
+.reserv-overlay.show { opacity: 1; pointer-events: all; }
+.reserv-modal {
+  background: #1a1824;
+  border-radius: 18px; border: 1px solid rgba(255,255,255,0.08);
+  width: min(480px, 100%); height: min(680px, 90vh);
+  overflow: hidden; display: flex; flex-direction: column;
+  transform: translateY(24px) scale(.96);
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+}
+.reserv-overlay.show .reserv-modal { transform: translateY(0) scale(1); }
+.reserv-hd {
+  padding: 14px 16px;
+  display: flex; align-items: center; gap: 10px;
+  background: #1a1824;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  flex-shrink: 0; flex-wrap: wrap;
+}
+.reserv-hd-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: rgba(200,169,126,0.12); color: var(--c-earth);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; flex-shrink: 0;
+}
+.reserv-hd-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 700; line-height: 1.1;
+  flex: 1; min-width: 80px;
+}
+.reserv-sede-switcher { display: flex; gap: 6px; align-items: center; }
+.reserv-sede-btn {
+  padding: 7px 16px; border-radius: 50px;
+  font-size: 12px; font-weight: 700; letter-spacing: .04em;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: transparent; color: var(--c-text3);
+  cursor: pointer; transition: all .25s;
+  font-family: 'DM Sans', sans-serif;
+}
+.reserv-sede-btn.active {
+  background: var(--grad-main); color: var(--c-ink);
+  border-color: transparent;
+  box-shadow: 0 3px 12px rgba(200,169,126,0.3);
+}
+.reserv-sede-btn:not(.active):hover { color: var(--c-text); border-color: rgba(255,255,255,0.2); }
+.reserv-body { flex: 1; position: relative; background: #2c2a38; }
+.reserv-body iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ── HISTORIA MODAL ───────────────────────────── */
+.hist-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.7);
+  backdrop-filter: blur(12px); z-index: 600;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity .35s;
+}
+.hist-overlay.show { opacity: 1; pointer-events: all; }
+.hist-modal {
+  background: rgba(18,16,22,0.97); border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px; width: 90vw; max-width: 660px; max-height: 84vh;
+  overflow-y: auto; display: flex; flex-direction: column;
+  transform: translateY(20px) scale(.97);
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
+  box-shadow: var(--shadow-lg);
+}
+.hist-overlay.show .hist-modal { transform: translateY(0) scale(1); }
+.hist-hd {
+  padding: 18px 22px; display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.05); position: sticky; top: 0;
+  background: rgba(18,16,22,.98); z-index: 2;
+}
+.hist-hd h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; display: flex; align-items: center; gap: 9px; }
+.hist-hd h3 i { color: var(--c-earth); }
+.hist-body { padding: 28px 28px 32px; }
+.hist-body h4 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; margin-bottom: 14px; }
+.hist-body p { font-size: 14px; color: var(--c-text2); line-height: 1.7; margin-bottom: 14px; font-weight: 300; }
+
+/* ── TOASTS ───────────────────────────────────── */
+.toast-wrap { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 700; display: flex; flex-direction: column; align-items: center; gap: 8px; pointer-events: none; }
+.toast {
+  background: rgba(22,20,30,0.95); backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 50px;
+  padding: 11px 22px; font-size: 13px; font-weight: 500;
+  display: flex; align-items: center; gap: 9px;
+  box-shadow: var(--shadow-md); white-space: nowrap;
+  animation: toastIn .35s ease, toastOut .35s ease 2.5s forwards;
+}
+.toast i { font-size: 14px; color: var(--c-earth); }
+@keyframes toastIn  { from{opacity:0;transform:translateY(14px) scale(.95)} to{opacity:1;transform:translateY(0) scale(1)} }
+@keyframes toastOut { from{opacity:1} to{opacity:0;transform:translateY(-8px)} }
+
+/* ── REVEAL ───────────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── FOOD PARADE ──────────────────────────────── */
+.food-parade {
+  width: 100vw; margin-left: calc(-50vw + 50%);
+  overflow: hidden; margin-bottom: 48px;
+  position: relative;
+  animation: fadeUp .8s .1s ease both;
+}
+.food-parade::before, .food-parade::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
+}
+.food-parade::before { left: 0; background: linear-gradient(to right, var(--c-ink), transparent); }
+.food-parade::after  { right: 0; background: linear-gradient(to left,  var(--c-ink), transparent); }
+
+.food-parade-track {
+  display: flex; gap: 16px;
+  width: max-content;
+  animation: paradeScroll 32s linear infinite;
+  padding: 4px 0;
+}
+.food-parade:hover .food-parade-track { animation-play-state: paused; }
+@keyframes paradeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.food-dish {
+  width: 220px; height: 160px; flex-shrink: 0;
+  border-radius: 16px; overflow: hidden;
+  background-size: cover; background-position: center;
+  position: relative; cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.07);
+  transition: transform .3s, box-shadow .3s;
+}
+.food-dish:hover { transform: scale(1.04); box-shadow: 0 12px 36px rgba(0,0,0,0.5); }
+.food-dish::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(0deg, rgba(13,12,16,.65) 0%, transparent 55%);
+}
+.food-dish-name {
+  position: absolute; bottom: 12px; left: 14px; right: 14px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; font-weight: 600; color: #fff;
+  z-index: 1; line-height: 1.2;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+/* ── CATALOG HORIZONTAL SLIDER (≥1300px) ─────── */
+.menu-slider-wrap {
+  position: relative;
+}
+.menu-slider {
+  display: flex; gap: 20px;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px; scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+.menu-slider::-webkit-scrollbar { display: none; }
+.menu-slider .product-card {
+  min-width: 280px; max-width: 280px;
+  scroll-snap-align: start; flex-shrink: 0;
+}
+
+.slider-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(18,16,22,0.9); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.1); color: var(--c-text2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; cursor: pointer; z-index: 5;
+  transition: all .25s; box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+.slider-btn:hover { background: var(--c-earth); color: var(--c-ink); border-color: transparent; }
+.slider-btn.prev { left: -20px; }
+.slider-btn.next { right: -20px; }
+
+.slider-dots {
+  display: flex; gap: 7px; justify-content: center; margin-top: 20px;
+}
+.slider-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(255,255,255,0.12); cursor: pointer; transition: all .3s; border: none;
+}
+.slider-dot.active { background: var(--c-earth); transform: scale(1.35); }
+
+/* on smaller screens keep the grid */
+@media (max-width: 1299px) {
+  .slider-btn { display: none; }
+  .menu-slider { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); overflow-x: unset; scroll-snap-type: unset; }
+  .menu-slider .product-card { min-width: unset; max-width: unset; }
+  .slider-dots { display: none; }
+}
+
+/* ── LANG FLAGS (inline SVG fallback) ────────────*/
+.flag-es, .flag-en {
+  display: inline-block; width: 18px; height: 13px;
+  border-radius: 2px; overflow: hidden; flex-shrink: 0; vertical-align: middle;
+}
+.flag-es { background: linear-gradient(to bottom, #c60b1e 28%, #f1bf00 28% 72%, #c60b1e 72%); }
+.flag-en {
+  background: #012169;
+  position: relative;
+}
+.flag-en::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    linear-gradient(to bottom right, transparent 45%, #fff 45%, #fff 55%, transparent 55%),
+    linear-gradient(to bottom left,  transparent 45%, #fff 45%, #fff 55%, transparent 55%);
+}
+.flag-en::after {
+  content: ''; position: absolute; inset: 0;
+  background:
+    linear-gradient(to bottom, transparent 38%, #fff 38%, #fff 62%, transparent 62%),
+    linear-gradient(to right,  transparent 40%, #fff 40%, #fff 60%, transparent 60%);
+}
+
+/* ── RESPONSIVE ───────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero-sedes { grid-template-columns: 1fr; max-width: 560px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .pm-modal { grid-template-columns: 1fr; max-height: 92vh; }
+  .pm-img { min-height: 240px; max-height: 280px; }
+  .pm-details { padding: 26px 22px; }
+}
+
+@media (max-width: 768px) {
+  nav { top: 8px; left: 8px; right: 8px; height: 52px; padding: 0 14px; border-radius: 14px; }
+  nav.pinned { top: 0; left: 0; right: 0; border-radius: 0; height: 52px; }
+  .nav-logo-img { height: 30px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .lang-sw { display: none; }
+  .nav-links.mobile-open {
+    display: flex; flex-direction: column;
+    position: fixed; top: 60px; left: 8px; right: 8px;
+    background: #1a1826; border: 1px solid rgba(255,255,255,0.08);
+    padding: 10px; border-radius: 14px; gap: 3px; z-index: 101;
+  }
+  .nav-links.mobile-open a { width: 100%; text-align: center; padding: 11px 16px; }
+  .hero { padding: 80px 0 56px; }
+  .hero-heading { font-size: clamp(48px, 12vw, 72px); }
+  .hero-sedes { gap: 14px; }
+  .sede-card { padding: 24px; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  footer { padding: 40px 0 24px; }
+  section { padding: 64px 0; }
+  .cart-panel { width: calc(100vw - 16px); border-radius: var(--r-sm); }
+  .wa-wrap { bottom: 16px; right: 16px; }
+  .wa-btn { width: 50px; height: 50px; font-size: 24px; }
+  .contact-sedes-grid { grid-template-columns: 1fr; }
+  .sede-toggle .sede-label { display: none; }
+}
+
+@media (max-width: 480px) {
+  nav { height: 46px; padding: 0 10px; }
+  nav.pinned { height: 46px; }
+  .nav-logo-img { height: 26px; }
+  .btn-icon { width: 32px; height: 32px; font-size: 13px; }
+  .nav-actions { gap: 5px; }
+  .carta-link span { display: none; }
+  .sede-toggle { padding: 5px 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body class="sede-lima">
+
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<div class="ambient" aria-hidden="true"></div>
+
+<!-- WHATSAPP -->
+<div class="wa-wrap" id="waWrap">
+  <div class="wa-bubble" id="waBubble">
+    <div class="wa-bubble-row"><i class="fa-brands fa-whatsapp"></i> <span>¿Necesitas una reserva?</span></div>
+    <div class="wa-sub"><span class="live-dot"></span> En línea 24/7</div>
+  </div>
+  <a href="https://wa.me/51932483302" class="wa-btn" id="waBtn" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar" aria-label="Navegación principal">
+  <a href="#" class="nav-logo" id="navLogo">
+    <img src="logo.png" alt="Fiesta" class="nav-logo-img" id="navLogoImg"
+         onerror="this.style.display='none';document.getElementById('navLogoFallback').style.display='flex'">
+    <div class="nav-logo-fallback" id="navLogoFallback">
+      <span class="nav-logo-text">Fiesta</span>
+    </div>
+  </a>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#menu">Catálogo</a>
+    <a href="#" onclick="openHistModal();return false;">Historia</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+
+  <div class="nav-actions">
+    <!-- SEDE -->
+    <div class="sede-dropdown" id="sedeDropdown">
+      <button class="sede-toggle" id="sedeToggle" aria-expanded="false" aria-label="Sede">
+        <span class="sede-label" id="sedeLabel">Lima</span>
+        <i class="fa-solid fa-chevron-down chev"></i>
+      </button>
+      <div class="sede-menu" id="sedeMenu">
+        <div class="sede-opt sd-lima active"  data-sede="lima"     onclick="setSede('lima')">
+          <span class="sede-dot"></span> Lima <i class="fa-solid fa-check"></i>
+        </div>
+        <div class="sede-opt sd-chiclayo"     data-sede="chiclayo" onclick="setSede('chiclayo')">
+          <span class="sede-dot"></span> Chiclayo <i class="fa-solid fa-check" style="display:none"></i>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://cartafiestalima.my.canva.site/" target="_blank" rel="noopener"
+       class="carta-link" aria-label="Ver carta">
+      <i class="fa-solid fa-book-open"></i>
+      <span>Carta</span>
+    </a>
+
+    <div class="lang-sw">
+      <button class="lang-btn active" onclick="setLang('es')" aria-pressed="true"><span class="flag-es" aria-hidden="true"></span> ES</button>
+      <button class="lang-btn" onclick="setLang('en')" aria-pressed="false"><span class="flag-en" aria-hidden="true"></span> EN</button>
+    </div>
+
+    <button class="btn-icon" id="btnLogin" aria-label="Ingresar">
+      <i class="fa-regular fa-user"></i>
+    </button>
+    <button class="btn-icon" id="btnOpenCart" aria-label="Carrito">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <div class="cart-badge" id="cartBadge">0</div>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<!-- HERO -->
+<section class="hero" id="hero" aria-labelledby="hero-h">
+  <div class="hero-deco" aria-hidden="true">
+    <div class="hero-deco-line"></div>
+    <div class="hero-deco-line"></div>
+    <div class="hero-deco-line"></div>
+    <div class="hero-deco-circle"></div>
+    <div class="hero-deco-circle"></div>
+  </div>
+  <div class="hero-content">
+    <h1 id="hero-h" class="visually-hidden">Fiesta Restaurant</h1>
+
+    <!-- FOOD PARADE BANNER -->
+    <div class="food-parade">
+      <div class="food-parade-track" id="foodParadeTrack">
+        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1535400255456-984241443b29?w=600&q=80')"><div class="food-dish-name">Ceviche Clásico</div></div>
+        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&q=80')"><div class="food-dish-name">Lomo Saltado</div></div>
+        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80')"><div class="food-dish-name">Tiradito</div></div>
+        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&q=80')"><div class="food-dish-name">Pisco Sour</div></div>
+        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=80')"><div class="food-dish-name">Anticuchos</div></div>
+        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=80')"><div class="food-dish-name">Causa Limeña</div></div>
+        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1541529086526-db283c563270?w=600&q=80')"><div class="food-dish-name">Ají de Gallina</div></div>
+        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80')"><div class="food-dish-name">Pavo Relleno</div></div>
+        <!-- duplicate for infinite loop -->
+        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1535400255456-984241443b29?w=600&q=80')"><div class="food-dish-name">Ceviche Clásico</div></div>
+        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&q=80')"><div class="food-dish-name">Lomo Saltado</div></div>
+        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80')"><div class="food-dish-name">Tiradito</div></div>
+        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&q=80')"><div class="food-dish-name">Pisco Sour</div></div>
+      </div>
+    </div>
+
+    <div class="hero-sedes">
+      <article class="sede-card lima">
+        <div class="sede-card-accent"></div>
+        <div class="sede-card-head">
+          <div class="sede-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <div class="sede-label">Sede Principal</div>
+            <div class="sede-title">Lima — Miraflores</div>
+          </div>
+        </div>
+        <div class="sede-details">
+          <div class="sede-row"><i class="fa-solid fa-map-pin"></i> Av. Reducto 1278 - Miraflores</div>
+          <div class="sede-row"><i class="fa-solid fa-phone"></i> <a href="tel:+51932483302">932 483 302</a></div>
+          <div class="sede-row"><i class="fa-regular fa-envelope"></i> <a href="mailto:informes@restaurantfiestagourmet.pe">informes@restaurantfiestagourmet.pe</a></div>
+          <div class="sede-row"><i class="fa-regular fa-clock"></i> Mar – Dom: 12:00 pm – 06:00 pm</div>
+        </div>
+        <div class="sede-btns">
+          <a href="#menu" class="btn-primary" onclick="setSede('lima')"><i class="fa-solid fa-utensils"></i> Catálogo</a>
+          <button class="btn-outline" onclick="openReservModal('lima')"><i class="fa-regular fa-calendar"></i> Reservar</button>
+        </div>
+      </article>
+
+      <article class="sede-card chiclayo">
+        <div class="sede-card-accent"></div>
+        <div class="sede-card-head">
+          <div class="sede-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <div class="sede-label">Sede Norte</div>
+            <div class="sede-title">Chiclayo — 3 de Octubre</div>
+          </div>
+        </div>
+        <div class="sede-details">
+          <div class="sede-row"><i class="fa-solid fa-map-pin"></i> Av. Salaverry 1820 - 3 de Octubre</div>
+          <div class="sede-row"><i class="fa-solid fa-phone"></i> <a href="tel:+51924516825">924 516 825</a></div>
+          <div class="sede-row"><i class="fa-regular fa-envelope"></i> <a href="mailto:chiclayo@restaurantfiestagourmet.pe">chiclayo@restaurantfiestagourmet.pe</a></div>
+          <div class="sede-row"><i class="fa-regular fa-clock"></i> Mar – Dom: 10:00 am – 06:00 pm</div>
+        </div>
+        <div class="sede-btns">
+          <a href="#menu" class="btn-primary" onclick="setSede('chiclayo')"><i class="fa-solid fa-utensils"></i> Catálogo</a>
+          <button class="btn-outline" onclick="openReservModal('chiclayo')"><i class="fa-regular fa-calendar"></i> Reservar</button>
+        </div>
+      </article>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="stat-num" data-target="12">0</div>
+        <div class="stat-label">Años</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num" data-target="2">0</div>
+        <div class="stat-label">Sedes</div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num" data-target="50">0</div>
+        <div class="stat-label">Platos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATÁLOGO -->
+<section id="menu" aria-labelledby="menu-h">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-tag"><i class="fa-solid fa-utensils"></i> Nuestra Carta</div>
+      <h2 class="section-title">El <em>catálogo</em></h2>
+      <p class="section-desc">Platos que honran la tradición peruana con ingredientes de la mejor calidad.</p>
+    </div>
+
+    <div class="menu-section reveal">
+      <div class="menu-section-head">
+        <div class="menu-section-icon icon-food"><i class="fa-solid fa-utensils"></i></div>
+        <div>
+          <div class="menu-section-title">Comidas</div>
+          <div class="menu-section-sub">Platos principales y entradas</div>
+        </div>
+        <span class="menu-count" id="comidasCount"></span>
+      </div>
+      <div class="menu-slider-wrap">
+        <button class="slider-btn prev" onclick="slideMenu('comidas',-1)" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="menu-slider" id="comidasGrid"></div>
+        <button class="slider-btn next" onclick="slideMenu('comidas',1)" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div class="slider-dots" id="comidasDots"></div>
+    </div>
+
+    <div class="menu-section reveal">
+      <div class="menu-section-head">
+        <div class="menu-section-icon icon-drink"><i class="fa-solid fa-wine-glass"></i></div>
+        <div>
+          <div class="menu-section-title">Bebidas</div>
+          <div class="menu-section-sub">Cocteles y bebidas tradicionales</div>
+        </div>
+        <span class="menu-count" id="bebidasCount"></span>
+      </div>
+      <div class="menu-slider-wrap">
+        <button class="slider-btn prev" onclick="slideMenu('bebidas',-1)" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="menu-slider" id="bebidasGrid"></div>
+        <button class="slider-btn next" onclick="slideMenu('bebidas',1)" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div class="slider-dots" id="bebidasDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios" style="background:var(--c-ink2)" aria-labelledby="testi-h">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-tag"><i class="fa-solid fa-quote-left"></i> Experiencias</div>
+      <h2 class="section-title">Lo que dicen<br>nuestros <em>comensales</em></h2>
+    </div>
+    <div class="testi-track reveal" id="testiTrack"></div>
+    <div class="testi-dots" id="testiDots"></div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" aria-labelledby="contact-h">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-tag"><i class="fa-regular fa-envelope"></i> Contáctanos</div>
+      <h2 class="section-title">Nuestras <em>sedes</em></h2>
+      <p class="section-desc">Encuéntranos en Lima y Chiclayo. Escríbenos directamente desde cada sede.</p>
+    </div>
+    <div class="contact-sedes-grid reveal">
+
+      <!-- LIMA -->
+      <div class="contact-sede-card lima">
+        <div class="contact-sede-label"><span></span>Sede Principal</div>
+        <div class="contact-sede-name">Lima — Miraflores</div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><i class="fa-solid fa-map-pin"></i></div>
+          <div><div class="contact-item-label">Dirección</div><div class="contact-item-val">Av. Reducto 1278 - Miraflores</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><i class="fa-solid fa-phone"></i></div>
+          <div><div class="contact-item-label">Teléfono</div><div class="contact-item-val"><a href="tel:+51932483302">932 483 302</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><i class="fa-regular fa-clock"></i></div>
+          <div><div class="contact-item-label">Horario</div><div class="contact-item-val">Mar – Dom: 12:00 pm – 06:00 pm</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div><div class="contact-item-label">WhatsApp</div><div class="contact-item-val"><a href="https://wa.me/51932483302" target="_blank" rel="noopener">+51 932 483 302</a></div></div>
+        </div>
+        <div class="contact-sede-socials">
+          <a href="https://www.facebook.com/fiestarestaurantgourmet" target="_blank" rel="noopener" class="contact-social" aria-label="Facebook Lima"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/fiestalima/" target="_blank" rel="noopener" class="contact-social" aria-label="Instagram Lima"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@fiestalima" target="_blank" rel="noopener" class="contact-social" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="http://www.youtube.com/@fiestarestaurantgourmet" target="_blank" rel="noopener" class="contact-social" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <button class="btn-escribenos" onclick="openContactModal('lima')">
+          <i class="fa-regular fa-envelope"></i> Escríbenos
+        </button>
+      </div>
+
+      <!-- CHICLAYO -->
+      <div class="contact-sede-card chiclayo">
+        <div class="contact-sede-label"><span></span>Sede Norte</div>
+        <div class="contact-sede-name">Chiclayo — 3 de Octubre</div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><i class="fa-solid fa-map-pin"></i></div>
+          <div><div class="contact-item-label">Dirección</div><div class="contact-item-val">Av. Salaverry 1820 - 3 de Octubre</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><i class="fa-solid fa-phone"></i></div>
+          <div><div class="contact-item-label">Teléfono</div><div class="contact-item-val"><a href="tel:+51924516825">924 516 825</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><i class="fa-regular fa-clock"></i></div>
+          <div><div class="contact-item-label">Horario</div><div class="contact-item-val">Mar – Dom: 10:00 am – 06:00 pm</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div><div class="contact-item-label">WhatsApp</div><div class="contact-item-val"><a href="https://wa.me/51924516825" target="_blank" rel="noopener">+51 924 516 825</a></div></div>
+        </div>
+        <div class="contact-sede-socials">
+          <a href="https://www.facebook.com/RestauranteFiesta" target="_blank" rel="noopener" class="contact-social" aria-label="Facebook Chiclayo"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/fiestachiclayo/" target="_blank" rel="noopener" class="contact-social" aria-label="Instagram Chiclayo"><i class="fa-brands fa-instagram"></i></a>
+          <a href="http://www.youtube.com/@fiestarestaurantgourmet" target="_blank" rel="noopener" class="contact-social" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <button class="btn-escribenos" onclick="openContactModal('chiclayo')">
+          <i class="fa-regular fa-envelope"></i> Escríbenos
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <img src="logo.png" alt="Fiesta" class="nav-logo-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="nav-logo-fallback" style="display:none">
+            <span class="nav-logo-text">Fiesta</span>
+          </div>
+        </a>
+        <p>Cocina peruana contemporánea que honra sus raíces desde 2012.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/fiestarestaurantgourmet" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook Lima"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/fiestalima/" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram Lima"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@fiestalima" target="_blank" rel="noopener" class="footer-social" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="http://www.youtube.com/@fiestarestaurantgourmet" target="_blank" rel="noopener" class="footer-social" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navegación</h5>
+        <a href="#hero">Inicio</a>
+        <a href="#menu">Catálogo</a>
+        <a href="#testimonios">Reseñas</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="footer-col">
+        <h5>Lima</h5>
+        <a href="#">Av. Reducto 1278</a>
+        <a href="tel:+51932483302">932 483 302</a>
+        <a href="mailto:informes@restaurantfiestagourmet.pe">informes@...</a>
+        <a href="#">Mar – Dom 12–18h</a>
+      </div>
+      <div class="footer-col">
+        <h5>Chiclayo</h5>
+        <a href="#">Av. Salaverry 1820</a>
+        <a href="tel:+51924516825">924 516 825</a>
+        <a href="mailto:chiclayo@restaurantfiestagourmet.pe">chiclayo@...</a>
+        <a href="#">Mar – Dom 10–18h</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Fiesta Restaurant Gourmet. Todos los derechos reservados.</p>
+      <p>Diseñado con cuidado en Lima, Perú 🇵🇪</p>
+    </div>
+  </div>
+</footer>
+
+<!-- CART -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-panel" id="cartPanel" role="dialog" aria-label="Carrito" aria-modal="true">
+  <div class="cart-hd">
+    <h3>Tu Pedido</h3>
+    <div class="cart-hd-right">
+      <span class="cart-sede-tag" id="cartSedeTag">Lima</span>
+      <button class="btn-close" id="btnCloseCart" aria-label="Cerrar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty-state">
+      <div class="cart-empty-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+      <p>Tu pedido está vacío</p>
+    </div>
+  </div>
+  <div class="cart-ft" id="cartFt" style="display:none">
+    <div class="cart-total-row">
+      <span class="cart-total-lbl">Total</span>
+      <span class="cart-total-val" id="cartTotal">S/ 0</span>
+    </div>
+    <button class="btn-checkout" id="btnCheckout">Confirmar Pedido</button>
+  </div>
+</aside>
+
+<!-- PRODUCT MODAL -->
+<div class="pm-overlay" id="pmOverlay" role="dialog" aria-modal="true">
+  <div class="pm-modal">
+    <div class="pm-img">
+      <div class="pm-img-overlay"></div>
+      <button class="pm-close-btn" id="pmClose" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+      <img id="pmImg" src="" alt="">
+    </div>
+    <div class="pm-details">
+      <div class="pm-cat" id="pmCat"></div>
+      <div class="pm-name" id="pmName"></div>
+      <div class="pm-price" id="pmPrice"></div>
+      <div class="pm-desc-lbl">Descripción</div>
+      <div class="pm-desc" id="pmDesc"></div>
+      <div class="pm-meta-grid">
+        <div class="pm-meta-item">
+          <div class="pm-meta-icon mi-earth"><i class="fa-solid fa-store"></i></div>
+          <div><div class="pm-meta-lbl">Sede</div><div class="pm-meta-val" id="pmSede"></div></div>
+        </div>
+        <div class="pm-meta-item">
+          <div class="pm-meta-icon mi-teal"><i class="fa-solid fa-clock"></i></div>
+          <div><div class="pm-meta-lbl">Prep.</div><div class="pm-meta-val" id="pmTime"></div></div>
+        </div>
+        <div class="pm-meta-item">
+          <div class="pm-meta-icon mi-earth"><i class="fa-solid fa-box"></i></div>
+          <div><div class="pm-meta-lbl">Stock</div><div class="pm-meta-val" id="pmStock"></div></div>
+        </div>
+      </div>
+      <div class="pm-qty-lbl">Cantidad</div>
+      <div class="pm-qty-ctrl">
+        <button class="pm-qty-btn" id="pmMinus">−</button>
+        <input class="pm-qty-val" id="pmQty" type="text" value="1" readonly>
+        <button class="pm-qty-btn" id="pmPlus">+</button>
+      </div>
+      <button class="pm-add" id="pmAdd"><i class="fa-solid fa-bag-shopping"></i> Agregar al pedido</button>
+    </div>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="auth-overlay" id="authOverlay" role="dialog" aria-modal="true">
+  <div class="auth-modal">
+    <button class="btn-close" id="btnCloseAuth" style="position:absolute;top:12px;right:12px" aria-label="Cerrar">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="auth-logo"><img src="logo.png" alt="Fiesta" onerror="this.style.display='none'"></div>
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="login">Iniciar sesión</button>
+      <button class="auth-tab" data-tab="register">Registrarse</button>
+    </div>
+    <div class="auth-panel active" id="loginPanel">
+      <form id="loginForm">
+        <div class="auth-group"><label>Email</label><input type="email" placeholder="tu@correo.com" required></div>
+        <div class="auth-group"><label>Contraseña</label><input type="password" required></div>
+        <button type="submit" class="btn-auth">Ingresar</button>
+      </form>
+    </div>
+    <div class="auth-panel" id="registerPanel">
+      <form id="registerForm">
+        <div class="auth-group"><label>Nombre</label><input type="text" required></div>
+        <div class="auth-group"><label>Email</label><input type="email" required></div>
+        <div class="auth-group"><label>Contraseña</label><input type="password" required></div>
+        <button type="submit" class="btn-auth">Crear cuenta</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- RESERVAS MODAL -->
+<div class="reserv-overlay" id="reservOverlay" role="dialog" aria-modal="true" aria-label="Reservas">
+  <div class="reserv-modal" id="reservModal">
+    <div class="reserv-hd">
+      <div class="reserv-hd-icon"><i class="fa-regular fa-calendar"></i></div>
+      <div class="reserv-hd-title" id="reservTitle">Reservar —<br>Lima</div>
+      <div class="reserv-sede-switcher">
+        <button class="reserv-sede-btn active" data-sede="lima"     onclick="changeReservSede('lima')">LIMA</button>
+        <button class="reserv-sede-btn"        data-sede="chiclayo" onclick="changeReservSede('chiclayo')">CHICLAYO</button>
+      </div>
+      <button class="btn-close" id="btnCloseReserv" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="reserv-body">
+      <iframe id="reservIframe" src="" title="Reservas" loading="lazy" allowtransparency="true"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT MODAL -->
+<div class="cmodal-overlay" id="cmodalOverlay" role="dialog" aria-modal="true" aria-label="Escríbenos">
+  <div class="cmodal">
+    <div class="cmodal-hd">
+      <div class="cmodal-hd-icon"><i class="fa-regular fa-envelope"></i></div>
+      <div class="cmodal-hd-title">
+        <h3 id="cmodalTitle">Escríbenos — Lima</h3>
+        <p id="cmodalSub">informes@restaurantfiestagourmet.pe</p>
+      </div>
+      <button class="btn-close" id="btnCloseCmodal" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cmodal-body">
+      <form id="cmodalForm" onsubmit="handleContactModal(event)">
+        <input type="hidden" id="cmodalSede" value="lima">
+        <div class="form-group">
+          <label class="form-label" for="cmName">Nombre completo</label>
+          <input class="form-input" type="text" id="cmName" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cmEmail">Correo electrónico</label>
+          <input class="form-input" type="email" id="cmEmail" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cmMsg">Mensaje</label>
+          <textarea class="form-input" id="cmMsg" required></textarea>
+        </div>
+        <button type="submit" class="btn-cmodal-submit">Enviar mensaje</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- HISTORIA MODAL -->
+<div class="hist-overlay" id="histOverlay" role="dialog" aria-modal="true">
+  <div class="hist-modal">
+    <div class="hist-hd">
+      <h3><i class="fa-solid fa-book-open"></i> Nuestra Historia</h3>
+      <button class="btn-close" id="btnCloseHist" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="hist-body">
+      <h4>Raíces que celebran la vida</h4>
+      <p>Fiesta nació en 2012 de la pasión de dos hermanos por recuperar las recetas tradicionales peruanas. Lo que comenzó como un pequeño comedor en Miraflores se convirtió en uno de los referentes de la cocina contemporánea del Perú.</p>
+      <p>Nuestra filosofía es simple: ingredientes frescos del mercado, técnicas ancestrales perfeccionadas, y un ambiente donde cada comida se siente como una celebración familiar.</p>
+      <p>Con sede en Lima (Miraflores) y Chiclayo (3 de Octubre), llevamos más de 12 años compartiendo los sabores que hacen único al Perú.</p>
+    </div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+
+<script>
+// ─── DATA ────────────────────────────────────────
+const SEDES = {
+  lima: {
+    phone: '932483302', wa: '51932483302',
+    email: 'informes@restaurantfiestagourmet.pe',
+    address: 'Av. Reducto 1278 - Miraflores',
+    hours: 'Mar – Dom: 12:00 pm – 06:00 pm',
+    reservUrl: 'https://fiesta.mesa247.pe/reservas/#/fiesta_lima',
+    catalog: {
+      comidas: [
+        {id:1, name:'Ceviche Clásico',   cat:'marino',  badge:'chef',    desc:'Corvina fresca marinada en limón y ají limo.',             price:58, img:'https://images.unsplash.com/photo-1535400255456-984241443b29?w=700&q=75', time:'15 min', stock:20},
+        {id:2, name:'Causa Limeña',      cat:'entrada', badge:null,      desc:'Papa amarilla rellena con pollo y aguacate.',              price:38, img:'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=700&q=75', time:'10 min', stock:15},
+        {id:3, name:'Lomo Saltado',      cat:'fondo',   badge:'chef',    desc:'Lomo de res salteado con cebolla, tomate y papas.',        price:65, img:'https://images.unsplash.com/photo-1600891964092-4316c288032e?w=700&q=75', time:'25 min', stock:12},
+        {id:5, name:'Tiradito',          cat:'marino',  badge:'new',     desc:'Pescado fresco en salsa de ají amarillo.',                 price:52, img:'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=700&q=75', time:'12 min', stock:8 },
+        {id:6, name:'Anticuchos',        cat:'entrada', badge:null,      desc:'Corazón de res marinado a la parrilla.',                   price:42, img:'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=700&q=75', time:'20 min', stock:0 },
+        {id:9, name:'Ají de Gallina',    cat:'fondo',   badge:null,      desc:'Gallina deshilachada en salsa de ají amarillo.',           price:48, img:'https://images.unsplash.com/photo-1541529086526-db283c563270?w=700&q=75', time:'20 min', stock:5 }
+      ],
+      bebidas: [
+        {id:8,  name:'Pisco Sour',       cat:'bebida',  badge:'popular', desc:'Pisco puro, limón, jarabe de goma y clara de huevo.',      price:26, img:'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=700&q=75', time:'3 min',  stock:25},
+        {id:12, name:'Chilcano',         cat:'bebida',  badge:null,      desc:'Pisco con ginger ale y limón.',                            price:22, img:'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=700&q=75', time:'2 min',  stock:20},
+        {id:13, name:'Maracuyá Sour',    cat:'bebida',  badge:'new',     desc:'Pisco artesanal con maracuyá fresco.',                     price:28, img:'https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?w=700&q=75', time:'4 min',  stock:3 },
+        {id:14, name:'Inca Kola',        cat:'bebida',  badge:null,      desc:'La gaseosa del Perú.',                                     price:8,  img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=700&q=75', time:'1 min',  stock:30},
+        {id:15, name:'Chicha Morada',    cat:'bebida',  badge:null,      desc:'Maíz morado hervido con frutas y especias.',               price:12, img:'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=700&q=75', time:'2 min',  stock:0 }
+      ]
+    }
+  },
+  chiclayo: {
+    phone: '924516825', wa: '51924516825',
+    email: 'chiclayo@restaurantfiestagourmet.pe',
+    address: 'Av. Salaverry 1820 - 3 de Octubre',
+    hours: 'Mar – Dom: 10:00 am – 06:00 pm',
+    reservUrl: 'https://fiesta.mesa247.pe/reservas/#/fiesta_chiclayo',
+    catalog: {
+      comidas: [
+        {id:4,  name:'Arroz con Pato',   cat:'fondo',   badge:'popular', desc:'Pato norteño cocido en chicha con arroz verde.',           price:62, img:'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=700&q=75', time:'35 min', stock:10},
+        {id:16, name:'Espesado',         cat:'entrada', badge:'chef',    desc:'Arroz hervido con menestra y carne guisada.',              price:35, img:'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=700&q=75', time:'15 min', stock:18},
+        {id:17, name:'Cuy Chactado',     cat:'fondo',   badge:null,      desc:'Cuy frito con papas y salsa criolla.',                     price:75, img:'https://images.unsplash.com/photo-1600891964092-4316c288032e?w=700&q=75', time:'30 min', stock:6 },
+        {id:18, name:'Tamales',          cat:'entrada', badge:null,      desc:'Envueltos en hoja de plátano.',                            price:28, img:'https://images.unsplash.com/photo-1626804475297-41608ea09aeb?w=700&q=75', time:'10 min', stock:0 },
+        {id:19, name:'Pavo Relleno',     cat:'fondo',   badge:null,      desc:'Con frutas secas, nueces y puré de papas.',                price:55, img:'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&q=75', time:'40 min', stock:7 },
+        {id:20, name:'Seco de Cabrito',  cat:'fondo',   badge:'chef',    desc:'Cabrito guisado en cerveza negra con frejoles.',           price:58, img:'https://images.unsplash.com/photo-1534939561126-855b8675edd7?w=700&q=75', time:'35 min', stock:14}
+      ],
+      bebidas: [
+        {id:21, name:'Chicha de Jora',   cat:'bebida',  badge:'popular', desc:'Maíz fermentado de la región.',                            price:10, img:'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=700&q=75', time:'2 min',  stock:22},
+        {id:22, name:'Pisco Sour',       cat:'bebida',  badge:null,      desc:'Clásico peruano bien preparado.',                          price:26, img:'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=700&q=75', time:'3 min',  stock:15},
+        {id:23, name:'Cerveza Artesanal',cat:'bebida',  badge:'new',     desc:'Rubia artesanal elaborada localmente.',                    price:18, img:'https://images.unsplash.com/photo-1575037614876-c38a4c44f5bd?w=700&q=75', time:'1 min',  stock:0 },
+        {id:24, name:'Jugo Maracuyá',    cat:'bebida',  badge:null,      desc:'Natural, fresco, recién preparado.',                       price:14, img:'https://images.unsplash.com/photo-1623065422902-30a2d295a3c7?w=700&q=75', time:'3 min',  stock:20},
+        {id:25, name:'Inca Kola',        cat:'bebida',  badge:null,      desc:'La gaseosa del Perú.',                                     price:8,  img:'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=700&q=75', time:'1 min',  stock:35}
+      ]
+    }
+  }
+};
+
+// ─── STATE ───────────────────────────────────────
+let sede = 'lima', cart = [], pmId = null, pmQty = 1;
+
+// ─── SEDE ────────────────────────────────────────
+const sedeToggleEl = document.getElementById('sedeToggle');
+const sedeMenuEl   = document.getElementById('sedeMenu');
+const sedeLabelEl  = document.getElementById('sedeLabel');
+
+sedeToggleEl.addEventListener('click', e => {
+  e.stopPropagation();
+  const open = sedeMenuEl.classList.toggle('open');
+  sedeToggleEl.classList.toggle('open', open);
+  sedeToggleEl.setAttribute('aria-expanded', open);
+});
+document.addEventListener('click', () => {
+  sedeMenuEl.classList.remove('open');
+  sedeToggleEl.classList.remove('open');
+  sedeToggleEl.setAttribute('aria-expanded', 'false');
+});
+sedeMenuEl.addEventListener('click', e => e.stopPropagation());
+
+function setSede(s) {
+  sede = s;
+  document.body.className = s === 'lima' ? 'sede-lima' : 'sede-chiclayo';
+  sedeLabelEl.textContent = s === 'lima' ? 'Lima' : 'Chiclayo';
+
+  document.querySelectorAll('.sede-opt').forEach(opt => {
+    const isActive = opt.dataset.sede === s;
+    opt.classList.toggle('active', isActive);
+    opt.querySelector('.fa-check').style.display = isActive ? '' : 'none';
+  });
+
+  const cfg = SEDES[s];
+  // contact
+  document.getElementById('cAddr').textContent   = cfg.address;
+  document.getElementById('cPhone').href          = 'tel:+51' + cfg.phone;
+  document.getElementById('cPhone').textContent   = cfg.phone.replace(/(\d{3})(\d{3})(\d{3})/, '$1 $2 $3');
+  document.getElementById('cEmail2').href         = 'mailto:' + cfg.email;
+  document.getElementById('cEmail2').textContent  = cfg.email;
+  document.getElementById('cWa').href             = 'https://wa.me/' + cfg.wa;
+  document.getElementById('cWa').textContent      = '+51 ' + cfg.phone.replace(/(\d{3})(\d{3})(\d{3})/, '$1 $2 $3');
+  document.getElementById('contactSede').value    = s;
+  document.getElementById('cartSedeTag').textContent = s === 'lima' ? 'Lima' : 'Chiclayo';
+  document.getElementById('waBtn').href           = 'https://wa.me/' + cfg.wa;
+
+  sedeMenuEl.classList.remove('open');
+  sedeToggleEl.classList.remove('open');
+  sedeToggleEl.setAttribute('aria-expanded', 'false');
+
+  renderCatalog();
+  toast('Sede: ' + (s === 'lima' ? 'Lima' : 'Chiclayo'), 'fa-solid fa-location-dot');
+}
+
+// ─── CATALOG RENDER ──────────────────────────────
+function badgeClass(b) {
+  if (!b) return '';
+  return { chef:'badge-chef', new:'badge-new', popular:'badge-popular' }[b] || '';
+}
+function badgeLabel(b) {
+  return { chef:'Del Chef', new:'Nuevo', popular:'Popular' }[b] || '';
+}
+function stockInfo(n) {
+  if (n === 0) return { cls:'stock-out', lbl:'Agotado' };
+  if (n <= 5)  return { cls:'stock-low', lbl: n + ' disp.' };
+  return { cls:'stock-ok', lbl: n + ' disp.' };
+}
+
+function renderCard(item) {
+  const out  = item.stock <= 0;
+  const si   = stockInfo(item.stock);
+  return `<div class="product-card${out?' sold-out':''}" onclick="${out?'':'openPM('+item.id+')'}">
+    <div class="pc-image">
+      <img src="${item.img}" alt="${item.name}" loading="lazy">
+      <div class="pc-image-overlay"></div>
+      ${item.badge ? `<div class="pc-badge ${badgeClass(item.badge)}">${badgeLabel(item.badge)}</div>` : ''}
+      <div class="pc-stock ${si.cls}">${si.lbl}</div>
+    </div>
+    <div class="pc-body">
+      <div class="pc-top">
+        <div class="pc-name">${item.name}</div>
+        <div class="pc-price">S/ ${item.price}</div>
+      </div>
+      <div class="pc-desc">${item.desc}</div>
+      <div class="pc-footer">
+        <div class="pc-meta">
+          <span><i class="fa-regular fa-clock"></i> ${item.time}</span>
+          <span><i class="fa-solid fa-tag"></i> ${item.cat}</span>
+        </div>
+        ${!out ? `<button class="btn-add" onclick="event.stopPropagation();addToCart(${item.id},1)" aria-label="Agregar">
+          <i class="fa-solid fa-plus"></i>
+        </button>` : ''}
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderCatalog() {
+  const cat = SEDES[sede].catalog;
+  document.getElementById('comidasGrid').innerHTML = cat.comidas.map(renderCard).join('');
+  document.getElementById('bebidasGrid').innerHTML = cat.bebidas.map(renderCard).join('');
+  document.getElementById('comidasCount').textContent = cat.comidas.length + ' platos';
+  document.getElementById('bebidasCount').textContent = cat.bebidas.length + ' bebidas';
+  buildDots('comidas', cat.comidas.length);
+  buildDots('bebidas', cat.bebidas.length);
+  // re-sync scroll listeners
+  ['comidas','bebidas'].forEach(id => {
+    const sl = document.getElementById(id + 'Grid');
+    sl.addEventListener('scroll', () => syncDots(id), { passive: true });
+  });
+}
+
+function buildDots(id, count) {
+  const wrap = document.getElementById(id + 'Dots');
+  if (!wrap) return;
+  wrap.innerHTML = Array.from({length: count}, (_, i) =>
+    `<button class="slider-dot${i===0?' active':''}" onclick="goToSlide('${id}',${i})" aria-label="Ir al ${i+1}"></button>`
+  ).join('');
+}
+
+function syncDots(id) {
+  const sl = document.getElementById(id + 'Grid');
+  const dots = document.querySelectorAll(`#${id}Dots .slider-dot`);
+  if (!dots.length) return;
+  const cardW = 280 + 20; // width + gap
+  const idx = Math.round(sl.scrollLeft / cardW);
+  dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+}
+
+function goToSlide(id, idx) {
+  const sl = document.getElementById(id + 'Grid');
+  const cardW = 280 + 20;
+  sl.scrollTo({ left: idx * cardW, behavior: 'smooth' });
+}
+
+function slideMenu(id, dir) {
+  const sl = document.getElementById(id + 'Grid');
+  const visibleW = sl.clientWidth;
+  sl.scrollBy({ left: dir * (visibleW + 20), behavior: 'smooth' });
+}
+
+// ─── CART ────────────────────────────────────────
+function allItems() {
+  const c = SEDES[sede].catalog;
+  return [...c.comidas, ...c.bebidas];
+}
+function findItem(id) {
+  const c = SEDES[sede].catalog;
+  return [...c.comidas, ...c.bebidas].find(i => i.id === id);
+}
+
+function addToCart(id, qty) {
+  const item = findItem(id);
+  if (!item || item.stock <= 0) return;
+  const ex = cart.find(c => c.id === id);
+  if (ex) ex.qty += qty; else cart.push({ id: item.id, name: item.name, price: item.price, img: item.img, cat: item.cat, qty });
+  updateCart();
+  toast(item.name + ' agregado', 'fa-solid fa-bag-shopping');
+}
+
+function removeFromCart(id) { cart = cart.filter(c => c.id !== id); updateCart(); }
+function changeQty(id, d) {
+  const item = cart.find(c => c.id === id);
+  if (!item) return;
+  item.qty += d;
+  if (item.qty <= 0) { removeFromCart(id); return; }
+  updateCart();
+}
+
+function updateCart() {
+  const badge = document.getElementById('cartBadge');
+  const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
+  const count = cart.reduce((s, c) => s + c.qty, 0);
+
+  if (count > 0) { badge.classList.add('show'); badge.textContent = count; }
+  else { badge.classList.remove('show'); }
+
+  const body = document.getElementById('cartBody');
+  const ft   = document.getElementById('cartFt');
+
+  if (!cart.length) {
+    body.innerHTML = `<div class="cart-empty-state"><div class="cart-empty-icon"><i class="fa-solid fa-bag-shopping"></i></div><p>Tu pedido está vacío</p></div>`;
+    ft.style.display = 'none'; return;
+  }
+  ft.style.display = 'block';
+  document.getElementById('cartTotal').textContent = 'S/ ' + total.toFixed(0);
+  body.innerHTML = cart.map(c => `
+    <div class="cart-item">
+      <div class="ci-img"><div class="ci-img-bg" style="background-image:url('${c.img}')"></div></div>
+      <div class="ci-info">
+        <div class="ci-name">${c.name}</div>
+        <div class="ci-sub">${c.cat}</div>
+        <div class="ci-qty">
+          <button class="qty-btn" onclick="changeQty(${c.id},-1)">−</button>
+          <span class="qty-val">${c.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${c.id},1)">+</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+        <div class="ci-price">S/ ${(c.price * c.qty).toFixed(0)}</div>
+        <button class="btn-rm" onclick="removeFromCart(${c.id})"><i class="fa-solid fa-trash-can"></i></button>
+      </div>
+    </div>`).join('');
+}
+
+document.getElementById('btnOpenCart').addEventListener('click', () => {
+  document.getElementById('cartOverlay').classList.add('show');
+  document.getElementById('cartPanel').classList.add('show');
+});
+function closeCart() {
+  document.getElementById('cartOverlay').classList.remove('show');
+  document.getElementById('cartPanel').classList.remove('show');
+}
+document.getElementById('btnCloseCart').addEventListener('click', closeCart);
+document.getElementById('cartOverlay').addEventListener('click', closeCart);
+document.getElementById('btnCheckout').addEventListener('click', () => {
+  toast('¡Pedido confirmado!', 'fa-solid fa-circle-check');
+  cart = []; updateCart(); closeCart();
+});
+
+// ─── PRODUCT MODAL ───────────────────────────────
+function openPM(id) {
+  const item = findItem(id);
+  if (!item || item.stock <= 0) return;
+  pmId = id; pmQty = 1;
+  document.getElementById('pmImg').src      = item.img;
+  document.getElementById('pmImg').alt      = item.name;
+  document.getElementById('pmCat').textContent   = item.cat;
+  document.getElementById('pmName').textContent  = item.name;
+  document.getElementById('pmPrice').textContent = 'S/ ' + item.price;
+  document.getElementById('pmDesc').textContent  = item.desc;
+  document.getElementById('pmSede').textContent  = sede;
+  document.getElementById('pmTime').textContent  = item.time;
+  document.getElementById('pmStock').textContent = item.stock + ' unidades';
+  document.getElementById('pmQty').value = 1;
+  document.getElementById('pmOverlay').classList.add('show');
+}
+function closePM() { document.getElementById('pmOverlay').classList.remove('show'); pmId = null; }
+document.getElementById('pmClose').addEventListener('click', closePM);
+document.getElementById('pmOverlay').addEventListener('click', e => { if (e.target === document.getElementById('pmOverlay')) closePM(); });
+document.getElementById('pmMinus').addEventListener('click', () => { if (pmQty > 1) { pmQty--; document.getElementById('pmQty').value = pmQty; } });
+document.getElementById('pmPlus').addEventListener('click',  () => { if (pmQty < 20) { pmQty++; document.getElementById('pmQty').value = pmQty; } });
+document.getElementById('pmAdd').addEventListener('click',   () => { if (pmId) { addToCart(pmId, pmQty); closePM(); } });
+
+// ─── RESERVAS ────────────────────────────────────
+let reservSede = 'lima';
+
+function openReservModal(s) {
+  reservSede = s;
+  const url = SEDES[s].reservUrl;
+  document.getElementById('reservIframe').src = url;
+  document.getElementById('reservTitle').innerHTML = 'Reservar —<br>' + (s === 'lima' ? 'Lima' : 'Chiclayo');
+  document.querySelectorAll('.reserv-sede-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.sede === s);
+  });
+  document.getElementById('reservOverlay').classList.add('show');
+}
+
+function changeReservSede(s) {
+  reservSede = s;
+  document.getElementById('reservIframe').src = SEDES[s].reservUrl;
+  document.getElementById('reservTitle').innerHTML = 'Reservar —<br>' + (s === 'lima' ? 'Lima' : 'Chiclayo');
+  document.querySelectorAll('.reserv-sede-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.sede === s);
+  });
+}
+
+function closeReservModal() {
+  document.getElementById('reservOverlay').classList.remove('show');
+  setTimeout(() => { document.getElementById('reservIframe').src = ''; }, 400);
+}
+document.getElementById('btnCloseReserv').addEventListener('click', closeReservModal);
+document.getElementById('reservOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('reservOverlay')) closeReservModal();
+});
+
+// ─── HISTORIA ────────────────────────────────────
+function openHistModal()  { document.getElementById('histOverlay').classList.add('show'); }
+function closeHistModal() { document.getElementById('histOverlay').classList.remove('show'); }
+document.getElementById('btnCloseHist').addEventListener('click', closeHistModal);
+document.getElementById('histOverlay').addEventListener('click', e => { if (e.target === document.getElementById('histOverlay')) closeHistModal(); });
+
+// ─── AUTH ────────────────────────────────────────
+document.getElementById('btnLogin').addEventListener('click', () => document.getElementById('authOverlay').classList.add('show'));
+document.getElementById('btnCloseAuth').addEventListener('click', () => document.getElementById('authOverlay').classList.remove('show'));
+document.getElementById('authOverlay').addEventListener('click', e => { if (e.target === document.getElementById('authOverlay')) document.getElementById('authOverlay').classList.remove('show'); });
+document.querySelectorAll('.auth-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.auth-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.tab === 'login' ? 'loginPanel' : 'registerPanel').classList.add('active');
+  });
+});
+document.getElementById('loginForm').addEventListener('submit', e => { e.preventDefault(); toast('¡Bienvenido!', 'fa-solid fa-user-check'); document.getElementById('authOverlay').classList.remove('show'); });
+document.getElementById('registerForm').addEventListener('submit', e => { e.preventDefault(); toast('Cuenta creada', 'fa-solid fa-user-check'); document.getElementById('authOverlay').classList.remove('show'); });
+
+// ─── CONTACT MODAL ───────────────────────────────
+function openContactModal(s) {
+  const cfg = SEDES[s];
+  document.getElementById('cmodalSede').value = s;
+  document.getElementById('cmodalTitle').textContent = 'Escríbenos — ' + (s === 'lima' ? 'Lima' : 'Chiclayo');
+  document.getElementById('cmodalSub').textContent = cfg.email;
+  document.getElementById('cmodalForm').reset();
+  document.getElementById('cmodalOverlay').classList.add('show');
+}
+function closeContactModal() { document.getElementById('cmodalOverlay').classList.remove('show'); }
+document.getElementById('btnCloseCmodal').addEventListener('click', closeContactModal);
+document.getElementById('cmodalOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('cmodalOverlay')) closeContactModal();
+});
+function handleContactModal(e) {
+  e.preventDefault();
+  const s   = document.getElementById('cmodalSede').value;
+  const cfg = SEDES[s];
+  const name = document.getElementById('cmName').value;
+  const email = document.getElementById('cmEmail').value;
+  const msg   = document.getElementById('cmMsg').value;
+  window.location.href = `mailto:${cfg.email}?subject=Consulta web&body=Nombre: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0A%0AMensaje:%0A${encodeURIComponent(msg)}`;
+  toast('Abriendo correo...', 'fa-solid fa-envelope');
+  closeContactModal();
+}
+
+// ─── TOAST ───────────────────────────────────────
+function toast(msg, icon = 'fa-solid fa-check') {
+  const wrap = document.getElementById('toastWrap');
+  const el = document.createElement('div');
+  el.className = 'toast';
+  el.innerHTML = `<i class="${icon}"></i> ${msg}`;
+  wrap.appendChild(el);
+  setTimeout(() => { if (el.parentNode) el.remove(); }, 3000);
+}
+
+// ─── TESTIMONIALS ────────────────────────────────
+function renderTestimonials() {
+  const data = [
+    { q: 'El ceviche más auténtico que he probado fuera de casa. Cada bocado es pura Lima.', name: 'Carolina M.', loc: 'Lima', av: 'av-e' },
+    { q: 'Celebramos nuestro aniversario aquí. El servicio y los platos fueron perfectos.', name: 'Roberto F.',  loc: 'Chiclayo', av: 'av-t' },
+    { q: 'La fusión de tradición y modernidad se siente en cada plato. Altamente recomendado.', name: 'Elena V.', loc: 'Buenos Aires', av: 'av-r' }
+  ];
+  const track = document.getElementById('testiTrack');
+  const dots  = document.getElementById('testiDots');
+  track.innerHTML = data.map(d => `
+    <div class="testi-card">
+      <div class="testi-stars">${'<i class="fa-solid fa-star"></i>'.repeat(5)}</div>
+      <div class="testi-quote">"${d.q}"</div>
+      <div class="testi-sep"></div>
+      <div class="testi-author">
+        <div class="testi-avatar ${d.av}">${d.name[0]}</div>
+        <div><div class="testi-name">${d.name}</div><div class="testi-loc">${d.loc}</div></div>
+      </div>
+    </div>`).join('');
+  dots.innerHTML = data.map((_, i) => `<div class="testi-dot${i===0?' active':''}" onclick="scrollTesti(${i})"></div>`).join('');
+
+  track.addEventListener('scroll', () => {
+    const cards = track.querySelectorAll('.testi-card');
+    const allDots = dots.querySelectorAll('.testi-dot');
+    let closest = 0, minDist = Infinity;
+    cards.forEach((c, i) => {
+      const dist = Math.abs(c.getBoundingClientRect().left - track.getBoundingClientRect().left);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    allDots.forEach((d, i) => d.classList.toggle('active', i === closest));
+  }, { passive: true });
+}
+function scrollTesti(i) {
+  const cards = document.querySelectorAll('.testi-card');
+  if (cards[i]) cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+}
+
+// ─── NAVBAR ──────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('pinned', window.scrollY > 60);
+}, { passive: true });
+
+// ─── HAMBURGER ───────────────────────────────────
+document.getElementById('hamburger').addEventListener('click', () => {
+  const l = document.getElementById('navLinks');
+  const open = l.classList.toggle('mobile-open');
+  document.getElementById('hamburger').setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+  document.getElementById('navLinks').classList.remove('mobile-open');
+}));
+
+// ─── ESCAPE KEY ──────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeCart(); closePM(); closeReservModal(); closeHistModal(); closeContactModal();
+    document.getElementById('authOverlay').classList.remove('show');
+    document.getElementById('navLinks').classList.remove('mobile-open');
+  }
+});
+
+// ─── WHATSAPP ────────────────────────────────────
+const isTouch = window.matchMedia('(pointer: coarse)').matches;
+const waBubble = document.getElementById('waBubble');
+const waBtn    = document.getElementById('waBtn');
+if (isTouch) {
+  waBtn.addEventListener('touchstart', e => {
+    e.preventDefault();
+    waBubble.classList.toggle('show');
+    setTimeout(() => waBubble.classList.remove('show'), 4000);
+  }, { passive: false });
+} else {
+  document.getElementById('waWrap').addEventListener('mouseenter', () => waBubble.classList.add('show'));
+  document.getElementById('waWrap').addEventListener('mouseleave', () => waBubble.classList.remove('show'));
+}
+
+// ─── REVEAL ──────────────────────────────────────
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: .08 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// ─── COUNTERS ────────────────────────────────────
+document.querySelectorAll('.stat-num[data-target]').forEach(el => {
+  const target = parseInt(el.dataset.target);
+  let current = 0;
+  const step = Math.ceil(target / 28);
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) { current = target; clearInterval(timer); }
+    el.textContent = current;
+  }, 40);
+  el.removeAttribute('data-target');
+});
+
+// ─── LANG (placeholder) ──────────────────────────
+function setLang(l) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.trim() === l.toUpperCase()));
+  toast('Idioma: ' + l.toUpperCase(), 'fa-solid fa-globe');
+}
+
+// ─── INIT ────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  setSede('lima');
+  renderTestimonials();
+  updateCart();
+});
+</script>
+</body>
+</html>
