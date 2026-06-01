@@ -555,11 +555,19 @@ section { padding: 96px 0; }
 
 /* ── SEDE CONTENT WRAPPER ─────────────────────── */
 .sede-content-wrapper {
-  opacity: 0; transform: translateY(20px);
+  display: none; /* Oculto inicialmente */
+  opacity: 0; 
+  transform: translateY(20px);
   transition: opacity .5s ease, transform .5s ease;
 }
+
+.sede-content-wrapper.active-layout {
+  display: block; /* Se activa mediante JS antes de animar */
+}
+
 .sede-content-wrapper.visible {
-  opacity: 1; transform: translateY(0);
+  opacity: 1; 
+  transform: translateY(0);
 }
 
 /* ── SEDE BANNER ──────────────────────────────── */
@@ -1054,52 +1062,6 @@ footer {
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ── FOOD PARADE ──────────────────────────────── */
-.food-parade {
-  width: 100vw; margin-left: calc(-50vw + 50%);
-  overflow: hidden; margin-bottom: 48px;
-  position: relative;
-  animation: fadeUp .8s .1s ease both;
-}
-.food-parade::before, .food-parade::after {
-  content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
-}
-.food-parade::before { left: 0; background: linear-gradient(to right, var(--c-ink), transparent); }
-.food-parade::after  { right: 0; background: linear-gradient(to left,  var(--c-ink), transparent); }
-
-.food-parade-track {
-  display: flex; gap: 16px;
-  width: max-content;
-  animation: paradeScroll 32s linear infinite;
-  padding: 4px 0;
-}
-.food-parade:hover .food-parade-track { animation-play-state: paused; }
-@keyframes paradeScroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.food-dish {
-  width: 220px; height: 160px; flex-shrink: 0;
-  border-radius: 16px; overflow: hidden;
-  background-size: cover; background-position: center;
-  position: relative; cursor: pointer;
-  border: 1px solid rgba(255,255,255,0.07);
-  transition: transform .3s, box-shadow .3s;
-}
-.food-dish:hover { transform: scale(1.04); box-shadow: 0 12px 36px rgba(0,0,0,0.5); }
-.food-dish::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(0deg, rgba(13,12,16,.65) 0%, transparent 55%);
-}
-.food-dish-name {
-  position: absolute; bottom: 12px; left: 14px; right: 14px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 15px; font-weight: 600; color: #fff;
-  z-index: 1; line-height: 1.2;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
-}
-
 /* ── CATALOG HORIZONTAL SLIDER (≥1300px) ─────── */
 .menu-slider-wrap {
   position: relative;
@@ -1233,7 +1195,6 @@ footer {
 <a href="#main-content" class="skip-link">Saltar al contenido</a>
 <div class="ambient" aria-hidden="true"></div>
 
-<!-- WHATSAPP -->
 <div class="wa-wrap" id="waWrap">
   <div class="wa-bubble" id="waBubble">
     <div class="wa-bubble-row"><i class="fa-brands fa-whatsapp"></i> <span>¿Necesitas una reserva?</span></div>
@@ -1244,7 +1205,6 @@ footer {
   </a>
 </div>
 
-<!-- NAV -->
 <nav id="navbar" aria-label="Navegación principal">
   <a href="#" class="nav-logo" id="navLogo">
     <img src="logo.png" alt="Fiesta" class="nav-logo-img" id="navLogoImg"
@@ -1261,17 +1221,16 @@ footer {
   </div>
 
   <div class="nav-actions">
-    <!-- SEDE -->
     <div class="sede-dropdown" id="sedeDropdown">
       <button class="sede-toggle" id="sedeToggle" aria-expanded="false" aria-label="Sede">
         <span class="sede-label" id="sedeLabel">Lima</span>
         <i class="fa-solid fa-chevron-down chev"></i>
       </button>
       <div class="sede-menu" id="sedeMenu">
-        <div class="sede-opt sd-lima active"  data-sede="lima"     onclick="setSede('lima')">
+        <div class="sede-opt sd-lima active"  data-sede="lima"     onclick="selectSede('lima')">
           <span class="sede-dot"></span> Lima <i class="fa-solid fa-check"></i>
         </div>
-        <div class="sede-opt sd-chiclayo"     data-sede="chiclayo" onclick="setSede('chiclayo')">
+        <div class="sede-opt sd-chiclayo"     data-sede="chiclayo" onclick="selectSede('chiclayo')">
           <span class="sede-dot"></span> Chiclayo <i class="fa-solid fa-check" style="display:none"></i>
         </div>
       </div>
@@ -1303,7 +1262,6 @@ footer {
 
 <main id="main-content">
 
-<!-- HERO: siempre visible -->
 <section class="hero" id="hero" aria-labelledby="hero-h">
   <div class="hero-deco" aria-hidden="true">
     <div class="hero-deco-line"></div>
@@ -1315,25 +1273,6 @@ footer {
   <div class="hero-content">
     <h1 id="hero-h" class="visually-hidden">Fiesta Restaurant</h1>
 
-    <!-- FOOD PARADE -->
-    <div class="food-parade">
-      <div class="food-parade-track">
-        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1535400255456-984241443b29?w=600&q=80')"><div class="food-dish-name">Ceviche Clásico</div></div>
-        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&q=80')"><div class="food-dish-name">Lomo Saltado</div></div>
-        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80')"><div class="food-dish-name">Tiradito</div></div>
-        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&q=80')"><div class="food-dish-name">Pisco Sour</div></div>
-        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=80')"><div class="food-dish-name">Anticuchos</div></div>
-        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=80')"><div class="food-dish-name">Causa Limeña</div></div>
-        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1541529086526-db283c563270?w=600&q=80')"><div class="food-dish-name">Ají de Gallina</div></div>
-        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80')"><div class="food-dish-name">Pavo Relleno</div></div>
-        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1535400255456-984241443b29?w=600&q=80')"><div class="food-dish-name">Ceviche Clásico</div></div>
-        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&q=80')"><div class="food-dish-name">Lomo Saltado</div></div>
-        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&q=80')"><div class="food-dish-name">Tiradito</div></div>
-        <div class="food-dish" style="background-image:url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&q=80')"><div class="food-dish-name">Pisco Sour</div></div>
-      </div>
-    </div>
-
-    <!-- SEDE CARDS -->
     <div class="hero-sedes">
       <article class="sede-card lima" id="heroCardLima">
         <div class="sede-card-accent"></div>
@@ -1405,26 +1344,23 @@ footer {
   </div>
 </section>
 
-<!-- CONTENIDO DE SEDE — oculto hasta seleccionar -->
 <div id="sedeContent" class="sede-content-wrapper" aria-hidden="true">
 
-  <!-- BANNER DE SEDE ACTIVA -->
   <div class="sede-active-banner" id="sedeActiveBanner">
     <div class="container">
-      <div class="sede-active-inner">
-        <div class="sede-active-info">
-          <span class="sede-active-dot" id="sedeActiveDot"></span>
-          <span class="sede-active-name" id="sedeActiveName">Lima — Miraflores</span>
-          <span class="sede-active-hours" id="sedeActiveHours">Mar – Dom: 12:00 pm – 06:00 pm</span>
+      <div class="sede-active-inner" style="display:flex; justify-content:space-between; align-items:center; padding:12px 0;">
+        <div class="sede-active-info" style="display:flex; align-items:center; gap:12px;">
+          <span class="sede-active-dot" id="sedeActiveDot" style="width:8px; height:8px; border-radius:50%; background:var(--c-earth);"></span>
+          <span class="sede-active-name" id="sedeActiveName" style="font-family:'Cormorant Garamond', serif; font-size:18px; font-weight:600;">Lima — Miraflores</span>
+          <span class="sede-active-hours" id="sedeActiveHours" style="font-size:13px; color:var(--c-text3);">Mar – Dom: 12:00 pm – 06:00 pm</span>
         </div>
-        <button class="btn-change-sede" onclick="closeSede()">
-          <i class="fa-solid fa-xmark"></i> Cambiar sede
+        <button class="btn-change-sede btn-outline" style="padding: 6px 14px;" onclick="closeSede()">
+          <i class="fa-solid fa-xmark"></i> Ocultar catálogo
         </button>
       </div>
     </div>
   </div>
 
-  <!-- CATÁLOGO -->
   <section id="menu" aria-labelledby="menu-h">
     <div class="container">
       <div class="section-head reveal">
@@ -1461,7 +1397,6 @@ footer {
     </div>
   </section>
 
-  <!-- TESTIMONIOS -->
   <section id="testimonios" style="background:var(--c-ink2)" aria-labelledby="testi-h">
     <div class="container">
       <div class="section-head reveal">
@@ -1473,10 +1408,7 @@ footer {
     </div>
   </section>
 
-</div><!-- /sedeContent -->
-
-<!-- TRABAJA CON NOSOTROS — siempre visible -->
-<section id="trabaja" class="trabaja-section" aria-labelledby="trabaja-h">
+</div><section id="trabaja" class="trabaja-section" aria-labelledby="trabaja-h">
   <div class="container">
     <div class="trabaja-grid reveal">
       <div class="trabaja-info">
@@ -1524,7 +1456,6 @@ footer {
 
 </main>
 
-<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -1537,7 +1468,7 @@ footer {
           </div>
         </a>
         <p>Cocina peruana contemporánea que honra sus raíces desde 2012.</p>
-        <div class="footer-socials">
+        <div class="footer-socials" id="footerSocials">
           <a href="https://www.facebook.com/fiestarestaurantgourmet" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook Lima"><i class="fa-brands fa-facebook-f"></i></a>
           <a href="https://www.instagram.com/fiestalima/" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram Lima"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://www.tiktok.com/@fiestalima" target="_blank" rel="noopener" class="footer-social" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
@@ -1566,7 +1497,6 @@ footer {
       </div>
     </div>
 
-    <!-- DATOS FISCALES -->
     <div class="footer-fiscal">
       <div class="footer-fiscal-col">
         <span class="fiscal-label">Sede Lima</span>
@@ -1588,7 +1518,6 @@ footer {
   </div>
 </footer>
 
-<!-- CART -->
 <div class="cart-overlay" id="cartOverlay"></div>
 <aside class="cart-panel" id="cartPanel" role="dialog" aria-label="Carrito" aria-modal="true">
   <div class="cart-hd">
@@ -1615,7 +1544,6 @@ footer {
   </div>
 </aside>
 
-<!-- PRODUCT MODAL -->
 <div class="pm-overlay" id="pmOverlay" role="dialog" aria-modal="true">
   <div class="pm-modal">
     <div class="pm-img">
@@ -1654,7 +1582,6 @@ footer {
   </div>
 </div>
 
-<!-- AUTH MODAL -->
 <div class="auth-overlay" id="authOverlay" role="dialog" aria-modal="true">
   <div class="auth-modal">
     <button class="btn-close" id="btnCloseAuth" style="position:absolute;top:12px;right:12px" aria-label="Cerrar">
@@ -1683,7 +1610,6 @@ footer {
   </div>
 </div>
 
-<!-- RESERVAS MODAL -->
 <div class="reserv-overlay" id="reservOverlay" role="dialog" aria-modal="true" aria-label="Reservas">
   <div class="reserv-modal" id="reservModal">
     <div class="reserv-hd">
@@ -1701,7 +1627,6 @@ footer {
   </div>
 </div>
 
-<!-- CONTACT MODAL -->
 <div class="cmodal-overlay" id="cmodalOverlay" role="dialog" aria-modal="true" aria-label="Escríbenos">
   <div class="cmodal">
     <div class="cmodal-hd">
@@ -1733,7 +1658,6 @@ footer {
   </div>
 </div>
 
-<!-- HISTORIA MODAL -->
 <div class="hist-overlay" id="histOverlay" role="dialog" aria-modal="true">
   <div class="hist-modal">
     <div class="hist-hd">
@@ -1807,7 +1731,7 @@ const SEDES = {
 // ─── STATE ───────────────────────────────────────
 let sede = 'lima', cart = [], pmId = null, pmQty = 1;
 
-// ─── SEDE ────────────────────────────────────────
+// ─── SEDE LOGIC (UPDATED) ────────────────────────
 const sedeToggleEl = document.getElementById('sedeToggle');
 const sedeMenuEl   = document.getElementById('sedeMenu');
 const sedeLabelEl  = document.getElementById('sedeLabel');
@@ -1825,6 +1749,7 @@ document.addEventListener('click', () => {
 });
 sedeMenuEl.addEventListener('click', e => e.stopPropagation());
 
+// setSede solo configura el estado interno y UI global (no abre el catálogo)
 function setSede(s) {
   sede = s;
   document.body.className = s === 'lima' ? 'sede-lima' : 'sede-chiclayo';
@@ -1834,43 +1759,65 @@ function setSede(s) {
     opt.classList.toggle('active', isActive);
     opt.querySelector('.fa-check').style.display = isActive ? '' : 'none';
   });
+  
   const cfg = SEDES[s];
   document.getElementById('cartSedeTag').textContent = s === 'lima' ? 'Lima' : 'Chiclayo';
   document.getElementById('waBtn').href = 'https://wa.me/' + cfg.wa;
+  
+  // Actualizar enlaces de redes en footer de acuerdo a la sede seleccionada
+  const fbLink = s === 'lima' ? 'https://www.facebook.com/fiestarestaurantgourmet' : 'https://www.facebook.com/RestauranteFiesta';
+  const igLink = s === 'lima' ? 'https://www.instagram.com/fiestalima/' : 'https://www.instagram.com/fiestachiclayo/';
+  const footerSocials = document.querySelectorAll('#footerSocials a');
+  if(footerSocials.length >= 2) {
+     footerSocials[0].href = fbLink;
+     footerSocials[1].href = igLink;
+  }
+
   sedeMenuEl.classList.remove('open');
   sedeToggleEl.classList.remove('open');
   sedeToggleEl.setAttribute('aria-expanded', 'false');
   renderCatalog();
 }
 
-function activarSede(s) {
-  setSede(s);
-  // show sede banner
-  const bannerName = document.getElementById('sedeBannerName');
+// selectSede se dispara al presionar "Ver sede" (Muestra el catálogo)
+function selectSede(s) {
+  setSede(s); // Prepara datos
+  
+  // Actualizar textos del banner de sede activa
+  const bannerName = document.getElementById('sedeActiveName');
+  const bannerHours = document.getElementById('sedeActiveHours');
   bannerName.textContent = s === 'lima' ? 'Lima — Miraflores' : 'Chiclayo — 3 de Octubre';
-  // show content with animation
+  bannerHours.textContent = SEDES[s].hours;
+
+  // Mostrar wrapper con animación
   const wrapper = document.getElementById('sedeContent');
-  wrapper.style.display = 'block';
-  // trigger reflow then animate in
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      wrapper.classList.add('visible');
-      renderTestimonials();
-      // scroll to content
-      setTimeout(() => {
-        wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
-    });
-  });
-  // highlight active card
+  wrapper.classList.add('active-layout');
+  
+  // Forzar reflow para aplicar animaciones desde el estado `display: block` inicial
+  void wrapper.offsetWidth; 
+  
+  wrapper.classList.add('visible');
+  renderTestimonials();
+
+  // Resaltar la tarjeta activa
   document.querySelectorAll('.sede-card').forEach(c => c.classList.remove('sede-active'));
-  document.getElementById('sedeCard' + s.charAt(0).toUpperCase() + s.slice(1)).classList.add('sede-active');
+  document.getElementById(s === 'lima' ? 'heroCardLima' : 'heroCardChiclayo').classList.add('sede-active');
+
+  // Scroll al catálogo suavemente
+  setTimeout(() => {
+    document.getElementById('menu').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
 }
 
-function cerrarSede() {
+// Ocultar catálogo
+function closeSede() {
   const wrapper = document.getElementById('sedeContent');
   wrapper.classList.remove('visible');
-  setTimeout(() => { wrapper.style.display = 'none'; }, 500);
+  
+  setTimeout(() => { 
+    wrapper.classList.remove('active-layout'); 
+  }, 500);
+
   document.querySelectorAll('.sede-card').forEach(c => c.classList.remove('sede-active'));
   document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
 }
@@ -2257,6 +2204,8 @@ function setLang(l) {
 
 // ─── INIT ────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+  // Inicializamos para tener la UI lista internamente, 
+  // pero el contenido de sede no se mostrará hasta no hacer click.
   setSede('lima');
   updateCart();
 });
